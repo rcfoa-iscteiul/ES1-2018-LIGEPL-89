@@ -206,8 +206,9 @@ public class App extends JFrame {
 		btnNewButton_1.setBounds(445, 539, 89, 20);
 		panel.add(btnNewButton_1);
 		
-		String[] opcoes= {"Últimas 24h","Última hora","Últimos 30min","Últimos 15min"};
-		JComboBox comboBox = new JComboBox(opcoes);
+		String[] op= {"Últimas 24h","Última hora","Últimos 30min","Últimos 15min","Últimos 5min"};
+		JComboBox comboBox = new JComboBox(op);
+		
 		comboBox.setBounds(595, 57, 136, 25);
 		comboBox.setSelectedIndex(0);
 		panel.add(comboBox);
