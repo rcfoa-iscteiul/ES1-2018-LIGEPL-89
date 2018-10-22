@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
+import javax.swing.JComboBox;
 
 public class App extends JFrame {
 	
@@ -185,11 +186,11 @@ public class App extends JFrame {
 		panel.add(chckbxNewCheckBox);
 
 		
-		checkTwitter.setBounds(360, 58, 97, 23);
+		checkTwitter.setBounds(264, 58, 97, 23);
 		panel.add(checkTwitter);
 
 		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Email");
-		chckbxNewCheckBox_2.setBounds(630, 58, 97, 23);
+		chckbxNewCheckBox_2.setBounds(402, 58, 97, 23);
 		panel.add(chckbxNewCheckBox_2);
 
 		
@@ -202,12 +203,17 @@ public class App extends JFrame {
 		textField_2.setColumns(10);
 
 		JButton btnNewButton_1 = new JButton("Responder");
-		btnNewButton_1.setBounds(463, 538, 89, 23);
+		btnNewButton_1.setBounds(445, 539, 89, 20);
 		panel.add(btnNewButton_1);
+		
+		String[] opcoes= {"Últimas 24h","Última hora","Últimos 30min","Últimos 15min"};
+		JComboBox comboBox = new JComboBox(opcoes);
+		comboBox.setBounds(595, 57, 136, 25);
+		comboBox.setSelectedIndex(0);
+		panel.add(comboBox);
+		
+		
 
 
 	}
-
-		
-
 }
