@@ -20,7 +20,12 @@ import com.tutorialspoint.Mail;
 import facebookexample.Facebook;
 import twitterexample.TwitterES;
 
-
+/**
+ * @author ES2018
+ * 
+ *         
+ *
+ */
 public class Appl extends JFrame {
 	private JPanel panel;
 	private JTextField textField_1;
@@ -30,7 +35,7 @@ public class Appl extends JFrame {
 	private JCheckBox checkEmail = new JCheckBox("Email");
 	private JTextArea textarea= new JTextArea();
 	private JButton btnNewButton = new JButton("Procurar");
-	
+
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,9 +50,13 @@ public class Appl extends JFrame {
 		});
 	}
 
+	/**
+	 * Construtor que inicializa a interface e exibe as respetivas informações conforme o filtro selecionado
+	 * 
+	 * 
+	 * 
+	 */
 	public Appl(){
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new JPanel();
 		setBounds(200, 200, 850, 600);
@@ -71,34 +80,32 @@ public class Appl extends JFrame {
 				
 				textarea.setText("");
 				if(checkTwitter.isSelected()) {
-					TwitterES t=new TwitterES(textField_1.getText());
-					ArrayList<String> temp=t.getTweets();
+					TwitterES t=new TwitterES(textField_1.getText());	
 					
-					for (String s : temp) {
+					for (String s : t.getTweets()) {
 						textarea.append(s+"\n");
 					}
 				}
 				
 				if(checkFacebook.isSelected()) {
-					Facebook f=new Facebook();
-					ArrayList<String> temp=f.getPosts();
+					Facebook f=new Facebook(textField_1.getText());
 					
-					for (String s : temp) {
+					for (String s : f.getPosts()) {
 						textarea.append(s+"\n");
 					}
 				}
 				
 				if(checkEmail.isSelected()) {
-					Mail f=new Mail();
+					Mail f=new Mail(textField_1.getText());
 					try {
 						f.check();
 					} catch (NoSuchProviderException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					ArrayList<String> temp=f.getMails();
 					
-					for (String s : temp) {
+					
+					for (String s : f.getMails()) {
 						textarea.append(s+"\n");
 						textarea.append("\n");
 					}
