@@ -3,6 +3,7 @@ package Interface;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.NoSuchProviderException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -14,7 +15,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import com.tutorialspoint.Mail;
+
 import facebookexample.Facebook;
+import twitterexample.TwitterES;
 
 
 public class Appl extends JFrame {
@@ -22,6 +26,8 @@ public class Appl extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JCheckBox checkTwitter=new JCheckBox("Twitter");
+	private JCheckBox checkFacebook = new JCheckBox("Facebook");
+	private JCheckBox checkEmail = new JCheckBox("Email");
 	private JTextArea textarea= new JTextArea();
 	private JButton btnNewButton = new JButton("Procurar");
 	
@@ -65,7 +71,15 @@ public class Appl extends JFrame {
 				
 				textarea.setText("");
 				if(checkTwitter.isSelected()) {
-					//App2 a=new App2();
+					TwitterES t=new TwitterES(textField_1.getText());
+					ArrayList<String> temp=t.getTweets();
+					
+					for (String s : temp) {
+						textarea.append(s+"\n");
+					}
+				}
+				
+				if(checkFacebook.isSelected()) {
 					Facebook f=new Facebook();
 					ArrayList<String> temp=f.getPosts();
 					
@@ -73,23 +87,38 @@ public class Appl extends JFrame {
 						textarea.append(s+"\n");
 					}
 				}
+				
+				if(checkEmail.isSelected()) {
+					Mail f=new Mail();
+					try {
+						f.check();
+					} catch (NoSuchProviderException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					ArrayList<String> temp=f.getMails();
+					
+					for (String s : temp) {
+						textarea.append(s+"\n");
+						textarea.append("\n");
+					}
+				}
+				
 				}
 				
 			
 		});
 
 
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Facebook");
-		chckbxNewCheckBox.setBounds(96, 58, 97, 23);
-		panel.add(chckbxNewCheckBox);
+		checkFacebook.setBounds(96, 58, 97, 23);
+		panel.add(checkFacebook);
 
 		
 		checkTwitter.setBounds(264, 58, 97, 23);
 		panel.add(checkTwitter);
 
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Email");
-		chckbxNewCheckBox_2.setBounds(402, 58, 97, 23);
-		panel.add(chckbxNewCheckBox_2);
+		checkEmail.setBounds(402, 58, 97, 23);
+		panel.add(checkEmail);
 
 		
 		textarea.setBounds(0, 88, 834, 440);
