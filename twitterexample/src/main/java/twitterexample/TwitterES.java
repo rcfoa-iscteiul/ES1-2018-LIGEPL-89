@@ -14,6 +14,12 @@ public class TwitterES {
 	private List<Status> statuses;
 	public ArrayList<String> tweets=new ArrayList<String>();
 
+	/**
+	 * Construtor que estabelece as ligações com os access token key e introduz todos os tweets numa lista que será posteriormente exibida
+	 * 
+	 * @param procura no qual podemos selcionar um filtro para especificar o nosso output
+	 * 
+	 */
 
 	public TwitterES(String procura) {
 		this.procura=procura;
@@ -21,16 +27,14 @@ public class TwitterES {
 		 try {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
     	cb.setDebugEnabled(true)
-    	.setOAuthConsumerKey("oUMmyUS7gyRAZfbRj5zYk86t9")
-    	  .setOAuthConsumerSecret("wzhAtgLCdDHReB6wpdguYKFxwXmyJXDDDaSnlnLk9M15ICDNAu")
-    	  .setOAuthAccessToken("1054165924197122049-yEMHGHuRzHXaHUfeBhmWEzSZ60MErb")
-    	  .setOAuthAccessTokenSecret("GkMie9MJeKcPRSvpWDPZu08g3IcBRk5PsoVv9QiB9QpCs");
+    	.setOAuthConsumerKey("t96OnTyYmSV76iC1kPYtcRtc0")
+    	  .setOAuthConsumerSecret("tcNFytTbgiEjFivWJy3weloIlDYJavnztaunvI8DYBviTRuzK8")
+    	  .setOAuthAccessToken("1054165924197122049-wgINZBH9O7e5wJdD4cuvZH5VxzG5KU")
+    	  .setOAuthAccessTokenSecret("5307MfLsLJiFvVBjFSWjaM4ROsysrOGRlcdv2UFpCrJkj");
     	TwitterFactory tf = new TwitterFactory(cb.build());
     	Twitter twitter = tf.getInstance();        		
        
 			statuses = twitter.getHomeTimeline();
-		
-        
 				int counter=0;
 		
 				    for (Status status : statuses) {
@@ -46,7 +50,12 @@ public class TwitterES {
 			}
 	}
 
-
+	/**
+	 * Função que retorna a lista com todos os tweets conforme o filtro selecionado
+	 * 
+	 * 
+	 * @return retorna a ArrayList com todos os tweets.
+	 */
 	public ArrayList<String> getTweets() {
 		return tweets;
 	}
@@ -56,6 +65,7 @@ public class TwitterES {
 		this.tweets = tweets;
 	}
 	
+
 	
 	
 }
