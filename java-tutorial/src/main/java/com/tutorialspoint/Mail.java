@@ -3,17 +3,35 @@ package com.tutorialspoint;
 import java.security.NoSuchProviderException;
 import java.util.ArrayList;
 import java.util.Properties;
-
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 
+/**
+ * @author ES2018
+ * 
+ *         
+ *
+ */
+
 public class Mail {
 	 ArrayList<String>mails=new ArrayList<String>();
+	 String procura;
+	 
+	 /**
+		 * Construtor da classe
+		 * 
+		 * @param  procura no qual podemos selcionar um filtro para especificar o nosso output
+		 * 
+		 */
+	 public Mail(String procura) {
+		 this.procura=procura;
+	 }
 	 
 	 
+	
    public void check() throws NoSuchProviderException 
    {
 	   String host1 = "pop.outlook.com";
@@ -39,16 +57,16 @@ public class Mail {
       emailFolder.open(Folder.READ_ONLY);
 
       Message[] messages = emailFolder.getMessages();
+      
+      
 
       for (int i = 0, n = messages.length; i < 10; i++) {
          Message message = messages[i];
-         System.out.println("---------------------------------");
-         System.out.println("Email Number " + (i + 1));
-         System.out.println("Subject: " + message.getSubject());
-         System.out.println("From: " + message.getFrom()[0]);
-         System.out.println("Text: " + message.getContent().toString());
+         
+         if(message.getSubject().contains(procura) || message.getFrom()[0].toString().contains(procura) ||message.getContentType().toString().contains(procura)) {
          mails.add(message.getSubject()+"-"+message.getFrom()[0]+"-"+message.getContentType().toString());
-
+         }
+         
       }
       
 
@@ -62,6 +80,12 @@ public class Mail {
       }
    }
 
+   /**
+	 * Função que retorna a lista com todos os emails conforme o filtro selecionado
+	 * 
+	 * 
+	 * @return retorna a ArrayList com todos os emails.
+	 */
  
    public ArrayList<String> getMails() {
  		return mails;
