@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.UIManager;
@@ -29,23 +31,19 @@ public class WelcomeGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		run();
-	}
-	public static void run() {
-		try {
-			WelcomeGUI frame = new WelcomeGUI();
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
+	
+	public WelcomeGUI(LoginGUI logingui) throws HeadlessException {
+		this.logingui = logingui;
+	}
+	
+	
 	/**
 	 * Create the frame.
 	 */
 	public void constroiJanela() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 520, 344);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.control);
@@ -53,7 +51,7 @@ public class WelcomeGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblWelcome = new JLabel("Welcome @username !\r\n");
+		JLabel lblWelcome = new JLabel("Welcome " + user +"!");
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWelcome.setForeground(new Color(0, 0, 0));
 		lblWelcome.setFont(new Font("Palatino Linotype", Font.BOLD, 17));
@@ -85,7 +83,11 @@ public class WelcomeGUI extends JFrame {
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				System.exit(0);
+				logingui.dispose();
+				dispose();
+				LoginGUI login1 = new LoginGUI();
+				login1.run();
+				
 			}
 		});
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -104,8 +106,11 @@ public class WelcomeGUI extends JFrame {
 		label.setIcon(new ImageIcon(WelcomeGUI.class.getResource("/Image/bomdia4.png")));
 		label.setBounds(25, 11, 452, 116);
 		contentPane.add(label);
+		setVisible(true);
 	}
 	
+	
+
 	public String getUser() {
 		return user;
 	}
