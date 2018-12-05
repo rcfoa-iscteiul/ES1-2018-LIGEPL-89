@@ -21,7 +21,7 @@ public class SendInformationGUI extends JFrame {
 
 	private JPanel contentPane;
 	private WelcomeGUI welcome;
-
+ 
 	/**
 	 * Launch the application.
 	 */
