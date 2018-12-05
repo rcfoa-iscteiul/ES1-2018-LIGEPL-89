@@ -1,11 +1,9 @@
 package Interface;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -17,11 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import com.sun.glass.events.MouseEvent;
-import com.sun.glass.ui.Cursor;
+import com.sun.glass.events.WindowEvent;
 
 import xpath.InfoXPath;
 
@@ -33,28 +29,31 @@ public class LoginGUI extends JFrame {
 	private JLabel label;
 	private InfoXPath xpath =new InfoXPath();
 	ArrayList<String> login;
+	WelcomeGUI w=new WelcomeGUI(this);
+
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		LoginGUI login = new LoginGUI();
+		login.run();
+	}
+public  void run() {
 				try {
 					LoginGUI frame = new LoginGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
-		});
-	}
+}
 
 	/**
 	 * Create the frame.
 	 */
 	public LoginGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 		setBounds(100, 100, 516, 338);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.control);
@@ -78,37 +77,14 @@ public class LoginGUI extends JFrame {
 		lblPassword.setBounds(72, 182, 83, 31);
 		contentPane.add(lblPassword);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String pass=new String(txtPassword.getPassword());
-				login=xpath.display(txtUsername.getText(), pass);
-				
-				if(login.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login System", JOptionPane.ERROR_MESSAGE);
-
-				}else {
-					WelcomeGUI w=new WelcomeGUI();
-					w.setUser(txtUsername.getText());
-					w.constroiJanela();
-					 
-				}
-				
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose();
-			}
-		});
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setBorder(UIManager.getBorder("CheckBox.border"));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(126, 227, 89, 44);
-		contentPane.add(btnNewButton);
+		
 		
 		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnClose.setBounds(320, 236, 89, 31);
 		contentPane.add(btnClose);
 		
@@ -122,5 +98,27 @@ public class LoginGUI extends JFrame {
 		txtPassword.setFont(new Font("Arial", Font.PLAIN, 15));
 		txtPassword.setBounds(155, 184, 234, 26);
 		contentPane.add(txtPassword);
+		
+		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String pass=new String(txtPassword.getPassword());
+				login=xpath.display(txtUsername.getText(), pass);
+				
+				if(login.isEmpty() || txtUsername.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login System", JOptionPane.ERROR_MESSAGE);
+
+				}else {
+					w.setUser(txtUsername.getText());
+					w.constroiJanela();
+					dispose();
+					 
+				}
+				
+				
+			}
+		});
+		btnNewButton.setBounds(85, 236, 89, 31);
+		contentPane.add(btnNewButton);
 	}
 }
