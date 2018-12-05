@@ -25,7 +25,7 @@ public class SearchInformationGUI extends JFrame {
 	private JTextField textField;
 	private LoginGUI login;
 	private WelcomeGUI welcome;
-
+ 
 	/**
 	 * Launch the application.
 	 */
