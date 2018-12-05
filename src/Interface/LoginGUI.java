@@ -86,7 +86,7 @@ public class LoginGUI extends JFrame {
 					WelcomeGUI w=new WelcomeGUI();
 					w.setUser(txtUsername.getText());
 					w.constroiJanela();
-					
+					 
 				}
 				
 			}
