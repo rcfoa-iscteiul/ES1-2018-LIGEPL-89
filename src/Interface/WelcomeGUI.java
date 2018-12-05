@@ -25,6 +25,7 @@ public class WelcomeGUI extends JFrame {
 	private LoginGUI logingui;
 	private SearchInformationGUI search;
 	private SendInformationGUI send;
+	private String user;
 	/**
 	 * Launch the application.
 	 */
@@ -43,7 +44,7 @@ public class WelcomeGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public WelcomeGUI() {
+	public void constroiJanela() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 520, 344);
 		contentPane = new JPanel();
@@ -103,5 +104,12 @@ public class WelcomeGUI extends JFrame {
 		label.setIcon(new ImageIcon(WelcomeGUI.class.getResource("/Image/bomdia4.png")));
 		label.setBounds(25, 11, 452, 116);
 		contentPane.add(label);
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
 	}
 }
