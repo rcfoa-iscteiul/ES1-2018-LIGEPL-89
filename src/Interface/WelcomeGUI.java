@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 public class WelcomeGUI extends JFrame {
 
@@ -24,36 +25,39 @@ public class WelcomeGUI extends JFrame {
 	private LoginGUI logingui;
 	private SearchInformationGUI search;
 	private SendInformationGUI send;
-	private String user;
 	/**
 	 * Launch the application.
 	 */
-	 
+	public static void main(String[] args) {
+		run();
+	}
+	public static void run() {
+		try {
+			WelcomeGUI frame = new WelcomeGUI();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-	
-	
 	/**
 	 * Create the frame.
 	 */
-	public void constroiJanela() {
-	//	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 510, 357);
+	public WelcomeGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 520, 344);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(204, 102, 51));
+		contentPane.setBackground(SystemColor.control);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblWelcome = new JLabel("Welcome " + user +" to Bom Dia Academia !");
+		JLabel lblWelcome = new JLabel("Welcome @username !\r\n");
+		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWelcome.setForeground(new Color(0, 0, 0));
-		lblWelcome.setFont(new Font("Tempus Sans ITC", Font.BOLD, 20));
-		lblWelcome.setBounds(82, 11, 353, 52);
+		lblWelcome.setFont(new Font("Palatino Linotype", Font.BOLD, 17));
+		lblWelcome.setBounds(25, 138, 452, 52);
 		contentPane.add(lblWelcome);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(WelcomeGUI.class.getResource("/Image/logobomdia.jpg")));
-		label.setBounds(10, 74, 310, 191);
-		contentPane.add(label);
 		
 		JButton btnNewButton = new JButton("Search Information");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -62,8 +66,8 @@ public class WelcomeGUI extends JFrame {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnNewButton.setBounds(330, 74, 144, 45);
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 12));
+		btnNewButton.setBounds(25, 230, 144, 45);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Send Information");
@@ -72,11 +76,11 @@ public class WelcomeGUI extends JFrame {
 				send.run();
 			}
 		});
-		btnNewButton_1.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(330, 148, 144, 45);
+		btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 12));
+		btnNewButton_1.setBounds(179, 230, 144, 45);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Close Application");
+		JButton btnNewButton_2 = new JButton("Logout");
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -90,18 +94,14 @@ public class WelcomeGUI extends JFrame {
 				
 			}
 		});
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_2.setBounds(330, 221, 144, 44);
+		btnNewButton_2.setFont(new Font("Arial", Font.BOLD, 12));
+		btnNewButton_2.setBounds(333, 230, 144, 44);
 		contentPane.add(btnNewButton_2);
 		
-		setVisible(true);
-
-	}
-	
-	public String getUser() {
-		return user;
-	}
-	public void setUser(String user) {
-		this.user = user;
+		JLabel label = new JLabel("");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setIcon(new ImageIcon(WelcomeGUI.class.getResource("/Image/bomdia4.png")));
+		label.setBounds(25, 11, 452, 116);
+		contentPane.add(label);
 	}
 }
