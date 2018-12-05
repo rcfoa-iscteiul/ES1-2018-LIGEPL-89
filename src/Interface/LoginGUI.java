@@ -1,33 +1,29 @@
 package Interface;
 
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.xml.ws.WebServiceClient;
-
-import xpath.InfoXPath;
-
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
 import java.awt.SystemColor;
-import javax.swing.UIManager;
-import java.awt.Cursor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import javax.swing.JSeparator;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+
+import com.sun.glass.events.MouseEvent;
+import com.sun.glass.ui.Cursor;
+
+import xpath.InfoXPath;
 
 public class LoginGUI extends JFrame {
 
@@ -38,40 +34,49 @@ public class LoginGUI extends JFrame {
 	private InfoXPath xpath =new InfoXPath();
 	ArrayList<String> login;
 
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
-		run();
-	}
-	public static void run() {
-		try {
-			LoginGUI frame = new LoginGUI();
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginGUI frame = new LoginGUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
-
-	
+	/**
+	 * Create the frame.
+	 */
 	public LoginGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 516, 338);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
-		contentPane.setForeground(new Color(0, 0, 0));
+		contentPane.setBackground(SystemColor.control);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtUsername = new JTextField();
-		txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		txtUsername.setBounds(111, 113, 247, 32);
-		contentPane.add(txtUsername);
-		txtUsername.setColumns(10);
+		JLabel label = new JLabel("");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setIcon(new ImageIcon(LoginGUI.class.getResource("/Image/bomdia2.jpg")));
+		label.setBounds(10, 33, 480, 55);
+		contentPane.add(label);
 		
-		txtPassword = new JPasswordField();
-		txtPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		txtPassword.setBounds(111, 156, 247, 32);
-		contentPane.add(txtPassword);
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblUsername.setBounds(72, 127, 83, 31);
+		contentPane.add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblPassword.setBounds(72, 182, 83, 31);
+		contentPane.add(lblPassword);
 		
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -103,53 +108,19 @@ public class LoginGUI extends JFrame {
 		btnNewButton.setBounds(126, 227, 89, 44);
 		contentPane.add(btnNewButton);
 		
-	
+		JButton btnClose = new JButton("Close");
+		btnClose.setBounds(320, 236, 89, 31);
+		contentPane.add(btnClose);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(LoginGUI.class.getResource("/Image/ohmano.png")));
-		lblNewLabel.setBounds(368, 113, 58, 44);
-		contentPane.add(lblNewLabel);
+		txtUsername = new JTextField();
+		txtUsername.setFont(new Font("Arial", Font.PLAIN, 15));
+		txtUsername.setBounds(155, 129, 234, 26);
+		contentPane.add(txtUsername);
+		txtUsername.setColumns(10);
 		
-		label = new JLabel("");
-		label.setIcon(new ImageIcon(LoginGUI.class.getResource("/Image/lock.png")));
-		label.setBounds(368, 156, 46, 32);
-		contentPane.add(label);
-		
-		JLabel lblNewLabel_1 = new JLabel("Bom Dia Academia Login Page");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(SystemColor.window);
-		lblNewLabel_1.setBackground(SystemColor.activeCaptionBorder);
-		lblNewLabel_1.setFont(new Font("Yu Gothic", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(111, 43, 247, 32);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setFont(new Font("Yu Gothic Medium", Font.BOLD, 15));
-		lblUsername.setBounds(21, 112, 91, 32);
-		contentPane.add(lblUsername);
-		
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Yu Gothic Medium", Font.BOLD, 15));
-		lblPassword.setBounds(21, 155, 80, 32);
-		contentPane.add(lblPassword);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(33, 210, 387, 8);
-		contentPane.add(separator);
-		
-		JLabel lblClose = new JLabel("      X");
-		lblClose.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-				System.exit(0);
-				
-			}
-		});
-		lblClose.setFont(new Font("Arial", Font.PLAIN, 16));
-		lblClose.setBounds(404, 11, 46, 14);
-		contentPane.add(lblClose);
-		setUndecorated(true);
+		txtPassword = new JPasswordField();
+		txtPassword.setFont(new Font("Arial", Font.PLAIN, 15));
+		txtPassword.setBounds(155, 184, 234, 26);
+		contentPane.add(txtPassword);
 	}
-	
 }
