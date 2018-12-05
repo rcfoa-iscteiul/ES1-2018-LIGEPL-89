@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+
+<info id="p1">
+	<user>BomdiaAcademia</user>
+	<password>12345</password>
+	<email>bomdiaacademiaiscte@gmail.com</email>
+	<consumerkey>1ZyS0VthdWkEVwUDbgYY0pJOT</consumerkey>
+	<consumersecret>EJs1MnCl4OlYmt1CP7DVxyurZfsrAJvpD6xaomi1i7ye6FRMY6</consumersecret>
+	<accesstoken>1054165924197122049-x1aRvgXqhfvljsPwUabQgqNSG5zrjZ</accesstoken>
+	<tokensecret>NHBQQfx5Dwd7VfYo0J1LBWsY4cneOCw9kK5vtLL0lA6ty</tokensecret>
+	<postsfacebook>EAAb4NL0K9XABAC4mrfJ6ONCAuwe7DKaeCVhcxoVp43cyfv1yZCTphHBbpjzwYPscRPyttt4tNSo0kgY2Az4yTCZCKf4oIEsG5RbaUJlw7lWpnkQnpw3aja79jD2F1ZAgmorlHdfZCtY69h1jtEcagQmBLGZCATsgUtw0udgkZAe0m2o7xthrs2QMrjQqHtjt0yd9jO5osMfAZDZD</postsfacebook>
+	<respondepostsfacebook>EAAc2bKycb0kBADi5iaXMLxZC35nvi0YfzylRvvHafH6HZAIHihSRZAhoxj4VZBLl9sdNpORyzOT0RJrwfCaNPBVlFLSVeOTFZC8YdBVnc51Qx3ILE9tMiI5XOEgf5uloe5OSnx59ZBhMX1COvLJV8DKqpb5ZA4K3urMHbo3rvOZAQeysYbb0Wy7vp5ukAWk6b8eZBAlrfsEfZAYAZDZD</respondepostsfacebook>
+</info>
+
+<info id="p2">
+	<user>Rafael</user>
+	<email>rafael.castanheira97@gmail.com</email>
+	<password>12345</password>
+</info>
+
+</info>
