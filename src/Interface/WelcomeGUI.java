@@ -28,7 +28,7 @@ public class WelcomeGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	
+	 
 
 	
 	
