@@ -51,7 +51,7 @@ public class Facebook {
 		this.procura = procura;
 		FacebookClient fbClient5 = new DefaultFacebookClient(accessToken5);
 		Connection<Post> result = fbClient5.fetchConnection("wall/feed", Post.class);
-
+ 
 		//int counter = 1;
 		for (List<Post> page : result) {
 			for (Post aPost : page) {
