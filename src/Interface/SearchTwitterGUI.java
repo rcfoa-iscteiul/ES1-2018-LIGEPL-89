@@ -1,5 +1,6 @@
 package Interface;
 
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -12,7 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
-public class SearchGUI extends JFrame {
+public class SearchTwitterGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -23,7 +24,7 @@ public class SearchGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchGUI frame = new SearchGUI();
+					SearchTwitterGUI frame = new SearchTwitterGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +36,7 @@ public class SearchGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SearchGUI() {
+	public SearchTwitterGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 633, 515);
 		contentPane = new JPanel();
@@ -49,7 +50,7 @@ public class SearchGUI extends JFrame {
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(SearchGUI.class.getResource("/Image/bomdia2.jpg")));
+		label_1.setIcon(new ImageIcon(SearchTwitterGUI.class.getResource("/Image/bomdia2.jpg")));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(10, 11, 597, 58);
 		contentPane.add(label_1);
