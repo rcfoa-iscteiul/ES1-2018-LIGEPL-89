@@ -38,7 +38,7 @@ public class SearchEmailGUI extends JFrame {
 	 */
 	public SearchEmailGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 633, 515);
+		setBounds(100, 100, 633, 501);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,7 +60,16 @@ public class SearchEmailGUI extends JFrame {
 		contentPane.add(textArea);
 		
 		JButton btnClose = new JButton("Close");
-		btnClose.setBounds(214, 414, 242, 23);
+		btnClose.setBounds(325, 414, 242, 23);
 		contentPane.add(btnClose);
+		
+		JButton btnNewButton = new JButton("Answer");
+		btnNewButton.setBounds(45, 414, 221, 23);
+		contentPane.add(btnNewButton);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(SearchEmailGUI.class.getResource("/Image/gmail.png")));
+		label_2.setBounds(515, 11, 81, 58);
+		contentPane.add(label_2);
 	}
 }
