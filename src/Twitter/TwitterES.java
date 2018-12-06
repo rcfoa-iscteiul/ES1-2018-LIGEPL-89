@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import Interface.Info;
+
 public class TwitterES {
 	private String procura;
 	private List<Status> statuses;
-	public ArrayList<String> tweets = new ArrayList<String>();
+	public ArrayList<Info> tweets = new ArrayList<Info>();
 	Date today = new Date();
-	
 	Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
 
 	/**
@@ -52,18 +53,18 @@ public class TwitterES {
 
 					if (combo.equals("Última hora")) {
 						if (today.getHours()==status.getCreatedAt().getHours() && today.getDay()== status.getCreatedAt().getDay() && today.getMonth() == status.getCreatedAt().getMonth() && today.getYear() == status.getCreatedAt().getYear() ) {
-							tweets.add(tweet);
+							tweets.add(new Info(status.getCreatedAt(),status.getUser().getName(),status.getText(),status.getFavoriteCount(),status.getRetweetCount(),-1,"twitter"));
 							
 						}
 					} else if (combo.equals("Últimas 6 horas")) {
 						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth() && today.getDay()== status.getCreatedAt().getDay()) {
 							if(status.getCreatedAt().before(today) && status.getCreatedAt().after(today2)) {
-							tweets.add(tweet);
+								tweets.add(new Info(status.getCreatedAt(),status.getUser().getName(),status.getText(),status.getFavoriteCount(),status.getRetweetCount(),-1,"twitter"));
 							
 						}}
 					} else if (combo.equals("Últimas 24 horas")) {
 						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth() && today.getDay() == status.getCreatedAt().getDay()) {
-							tweets.add(tweet);
+							tweets.add(new Info(status.getCreatedAt(),status.getUser().getName(),status.getText(),status.getFavoriteCount(),status.getRetweetCount(),-1,"twitter"));
 						}
 					}
 
@@ -85,11 +86,11 @@ public class TwitterES {
 	 * 
 	 * @return retorna a ArrayList com todos os tweets.
 	 */
-	public ArrayList<String> getTweets() {
+	public ArrayList<Info> getTweets() {
 		return tweets;
 	}
 
-	public void setTweets(ArrayList<String> tweets) {
+	public void setTweets(ArrayList<Info> tweets) {
 		this.tweets = tweets;
 	}
 
