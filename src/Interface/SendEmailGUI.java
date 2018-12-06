@@ -39,7 +39,7 @@ public class SendEmailGUI extends JFrame {
 	 */
 	public SendEmailGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 602, 513);
+		setBounds(100, 100, 602, 573);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,12 +52,46 @@ public class SendEmailGUI extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(10, 105, 566, 305);
+		textPane.setBounds(33, 265, 521, 216);
 		contentPane.add(textPane);
 		
 		JButton btnClose = new JButton("Close");
 		btnClose.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnClose.setBounds(195, 421, 230, 23);
+		btnClose.setBounds(312, 492, 230, 23);
 		contentPane.add(btnClose);
+		
+		JButton btnSend = new JButton("Send");
+		btnSend.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSend.setBounds(44, 492, 230, 23);
+		contentPane.add(btnSend);
+		
+		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setBounds(98, 198, 315, 37);
+		contentPane.add(textPane_1);
+		
+		JLabel lblSubject = new JLabel("Subject:");
+		lblSubject.setFont(new Font("Arial", Font.BOLD, 14));
+		lblSubject.setBounds(33, 198, 78, 43);
+		contentPane.add(lblSubject);
+		
+		JLabel lblPleaseWriteThe = new JLabel("Please write the email you want to send:");
+		lblPleaseWriteThe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPleaseWriteThe.setFont(new Font("Arial", Font.BOLD, 14));
+		lblPleaseWriteThe.setBounds(33, 97, 521, 23);
+		contentPane.add(lblPleaseWriteThe);
+		
+		JTextPane textPane_2 = new JTextPane();
+		textPane_2.setBounds(98, 150, 315, 37);
+		contentPane.add(textPane_2);
+		
+		JLabel lblTo = new JLabel("To:");
+		lblTo.setFont(new Font("Arial", Font.BOLD, 14));
+		lblTo.setBounds(61, 150, 62, 43);
+		contentPane.add(lblTo);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(SendEmailGUI.class.getResource("/Image/gmail.png")));
+		label.setBounds(489, 11, 87, 62);
+		contentPane.add(label);
 	}
 }

@@ -46,7 +46,7 @@ static String emailBody = ":)";
   catch (Exception mex){
   mex.printStackTrace();}
   
-  
+   
   }
   public class SMTPAuthenticator extends javax.mail.Authenticator
   {

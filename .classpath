@@ -2,9 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Sr. Rafael Francisco/Desktop/jaf-1.1.1/activation.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sr. Rafael Francisco/Desktop/jaf-1.1.1/javax.mail-1.6.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sr. Rafael Francisco/Downloads/restfb-2.12.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sr. Rafael Francisco/Desktop/Nova pasta (2)/twitter4j-core-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MSI/Desktop/jarss/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MSI/Desktop/jarss/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MSI/Desktop/jarss/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MSI/Desktop/jarss/restfb-2.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MSI/Desktop/jarss/twitter4j-core-4.0.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
