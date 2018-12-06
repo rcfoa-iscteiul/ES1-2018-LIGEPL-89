@@ -9,7 +9,7 @@ import org.w3c.dom.*;
 import javax.xml.xpath.*;
 
 public class InfoXPath {
-	  ArrayList<String> user=new ArrayList<String>();
+	  ArrayList<String> tokens=new ArrayList<String>();
 	  
 
 	public  ArrayList<String> display(String user, String pass) {
@@ -45,6 +45,13 @@ public class InfoXPath {
 		System.out.println(tokens);
 		return tokens;
 	}
+
+
+	public ArrayList<String> getTokens() {
+		return tokens;
+	}
+	
+	
 	
 
 	
