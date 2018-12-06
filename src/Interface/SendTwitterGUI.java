@@ -1,5 +1,6 @@
 package Interface;
 
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,7 +14,7 @@ import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.Font;
 
-public class SendGUI extends JFrame {
+public class SendTwitterGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +25,7 @@ public class SendGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SendGUI frame = new SendGUI();
+					SendTwitterGUI frame = new SendTwitterGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +37,7 @@ public class SendGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SendGUI() {
+	public SendTwitterGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 513);
 		contentPane = new JPanel();
@@ -45,7 +46,7 @@ public class SendGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(SendGUI.class.getResource("/Image/bomdia2.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(SendTwitterGUI.class.getResource("/Image/bomdia2.jpg")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 566, 62);
 		contentPane.add(lblNewLabel);
