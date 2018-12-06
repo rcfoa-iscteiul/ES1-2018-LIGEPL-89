@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -17,28 +18,12 @@ import java.awt.Font;
 public class SearchTwitterGUI extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SearchTwitterGUI frame = new SearchTwitterGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public SearchTwitterGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	private int fav;
+	private int retweets;
+	private String tweet;
+	
+	public void constroiJanela() {
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 633, 446);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,7 +43,11 @@ public class SearchTwitterGUI extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(74, 133, 464, 155);
-		contentPane.add(textArea);
+		textArea.setText(tweet);
+		textArea.setLineWrap(true);
+		JScrollPane sp = new JScrollPane(textArea);
+		sp.setBounds(74, 133, 464, 155);
+		contentPane.add(sp);
 		
 		JButton btnClose = new JButton("Close");
 		btnClose.setBounds(185, 353, 242, 23);
@@ -72,12 +61,12 @@ public class SearchTwitterGUI extends JFrame {
 		btnFavorite.setBounds(388, 299, 89, 23);
 		contentPane.add(btnFavorite);
 		
-		JLabel lblFavoritescount = new JLabel("Favorites: @count");
+		JLabel lblFavoritescount = new JLabel("Favorites: "+fav);
 		lblFavoritescount.setFont(new Font("Arial", Font.BOLD, 14));
 		lblFavoritescount.setBounds(126, 99, 145, 23);
 		contentPane.add(lblFavoritescount);
 		
-		JLabel lblRetweetscount = new JLabel("Retweets: @count");
+		JLabel lblRetweetscount = new JLabel("Retweets: "+retweets);
 		lblRetweetscount.setFont(new Font("Arial", Font.BOLD, 14));
 		lblRetweetscount.setBounds(367, 99, 145, 23);
 		contentPane.add(lblRetweetscount);
@@ -86,5 +75,31 @@ public class SearchTwitterGUI extends JFrame {
 		label_2.setIcon(new ImageIcon(SearchTwitterGUI.class.getResource("/Image/twitter2.png")));
 		label_2.setBounds(520, 11, 87, 71);
 		contentPane.add(label_2);
+		
+		setVisible(true);
+	}
+
+	public int getFav() {
+		return fav;
+	}
+
+	public void setFav(int fav) {
+		this.fav = fav;
+	}
+
+	public int getRetweets() {
+		return retweets;
+	}
+
+	public void setRetweets(int retweets) {
+		this.retweets = retweets;
+	}
+
+	public String getTweet() {
+		return tweet;
+	}
+
+	public void setTweet(String tweet) {
+		this.tweet = tweet;
 	}
 }

@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -16,28 +17,26 @@ import javax.swing.JButton;
 public class SearchEmailGUI extends JFrame {
 
 	private JPanel contentPane;
+		private String content;
+		
+		
  
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SearchEmailGUI frame = new SearchEmailGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+	public String getContent() {
+			return content;
+		}
 
-	/**
-	 * Create the frame.
-	 */
-	public SearchEmailGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+
+		public void setContent(String content) {
+			this.content = content;
+		}
+
+
+
+
+	public void constroiJanela() {
 		setBounds(100, 100, 633, 501);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -57,7 +56,11 @@ public class SearchEmailGUI extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(10, 100, 597, 303);
-		contentPane.add(textArea);
+		textArea.setText(content);
+		textArea.setLineWrap(true);
+		JScrollPane sp = new JScrollPane(textArea);
+		sp.setBounds(10, 100, 597, 303);
+		contentPane.add(sp);
 		
 		JButton btnClose = new JButton("Close");
 		btnClose.setBounds(325, 414, 242, 23);
@@ -71,5 +74,6 @@ public class SearchEmailGUI extends JFrame {
 		label_2.setIcon(new ImageIcon(SearchEmailGUI.class.getResource("/Image/gmail.png")));
 		label_2.setBounds(515, 11, 81, 58);
 		contentPane.add(label_2);
+		setVisible(true);
 	}
 }

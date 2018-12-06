@@ -19,6 +19,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.SwingConstants;
 
 public class WelcomeGUI extends JFrame {
@@ -28,6 +30,7 @@ public class WelcomeGUI extends JFrame {
 	private SearchInformationGUI search;
 	private SendInformationGUI send;
 	private String user;
+	private ArrayList<String> tokens;
 	/**
 	 * Launch the application.
 	 */
@@ -35,6 +38,7 @@ public class WelcomeGUI extends JFrame {
 	
 	public WelcomeGUI(LoginGUI logingui) throws HeadlessException {
 		this.logingui = logingui;
+		tokens=logingui.getLogin();
 	}
 	
 	
@@ -110,6 +114,13 @@ public class WelcomeGUI extends JFrame {
 	}
 	
 	
+	
+	
+
+	public ArrayList<String> getTokens() {
+		return tokens;
+	}
+
 
 	public String getUser() {
 		return user;
