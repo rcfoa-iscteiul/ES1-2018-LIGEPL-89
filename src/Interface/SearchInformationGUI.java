@@ -26,6 +26,7 @@ public class SearchInformationGUI extends JFrame {
 	private JTextField textField;
 	private LoginGUI login;
 	private WelcomeGUI welcome;
+	
  
 	/**
 	 * Launch the application.
@@ -105,23 +106,9 @@ public class SearchInformationGUI extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial", Font.BOLD, 16));
-		btnNewButton.setBounds(427, 545, 212, 29);
+		btnNewButton.setBounds(318, 545, 212, 29);
 		contentPane.add(btnNewButton);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//welcome.run();!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			}
-		});
-		btnBack.setFont(new Font("Arial", Font.BOLD, 16));
-		btnBack.setBounds(135, 545, 212, 29);
-		contentPane.add(btnBack);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u00FAltima hora "}));
-		comboBox.setBounds(602, 157, -38, 36);
-		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u00DAltima hora", "\u00DAltimas 6 horas", "\u00DAltimas 24 horas"}));
