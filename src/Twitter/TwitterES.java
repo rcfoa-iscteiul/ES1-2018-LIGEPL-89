@@ -37,6 +37,8 @@ public class TwitterES {
 					.setOAuthAccessTokenSecret("Qhu4tsevnuDzfj9Ulj7qlixwSO3m3GPC3drWJykRIekGK");
 			TwitterFactory tf = new TwitterFactory(cb.build());
 			Twitter twitter = tf.getInstance();
+			
+			
 
 			statuses = twitter.getHomeTimeline();
 	

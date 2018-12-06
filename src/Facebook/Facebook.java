@@ -57,9 +57,6 @@ public class Facebook {
  
 		
 		today2.setHours(today.getHours()-6);
-		System.out.println(today2);
-		
-		
 		
 		//int counter = 1;
 		for (List<Post> page : result) {

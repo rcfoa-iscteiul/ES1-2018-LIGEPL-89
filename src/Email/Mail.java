@@ -38,6 +38,7 @@ public class Mail {
 			// create properties field
 			Properties properties = new Properties();
 
+			
 			properties.put("mail.pop3.host", host);
 			properties.put("mail.pop3.port", "995");
 			properties.put("mail.pop3.starttls.enable", "true");
