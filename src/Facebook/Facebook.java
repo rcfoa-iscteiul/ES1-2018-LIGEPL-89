@@ -26,9 +26,12 @@ import com.restfb.types.User;
 public class Facebook {
 	String procura;
 	ArrayList<String> posts = new ArrayList<String>();
-	String accessToken5 = "EAAc2bKycb0kBAKod5F1zdNiZCo5kmTABgHqcsDf0XhwKXE88CZBzkpxyL9ZBvuvZCbG7DbR1LcypxcZBpbF5pi3Eb8UqmwtgxQlRe40xdDvZALopan0XuUPvKFxRsYHGpNU2ZATXoRfK7dyDMdSlgoAQ18AZA8bMj0VahVGakTaWnjUPyIV912XqHDdZAZBkZArI8oXNMNjZCeb5gwZDZD";
+	String accessToken5 = "EAAc2bKycb0kBAK1z3T8mylwZAGTMBzCTW7J7lrH7GzqoJCQiyuaetJIZAqmC9sc6YkfhtIsD48vcWUyoP4OuUfLQCEy4A05zDXwfimnM57xDZBWO2KZCFYBZBdnNW4vNdfWycZCmAmrktZC1UVfVrjCqf8hfrcHAfa5ehk1VABzQR7MtHonGa8yMlezAeXFO6kZD";
 	List<Date> tempos = new ArrayList<Date>();
 	Date today = new Date();
+	Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
+	
+	
 
 	/**
 	 * Construtor que estabelece as ligações com os access token key e introduz
@@ -50,22 +53,30 @@ public class Facebook {
 	public Facebook(String procura, String combo) {
 		this.procura = procura;
 		FacebookClient fbClient5 = new DefaultFacebookClient(accessToken5);
-		Connection<Post> result = fbClient5.fetchConnection("wall/feed", Post.class);
+		Connection<Post> result = fbClient5.fetchConnection("me/feed", Post.class);
  
+		
+		today2.setHours(today.getHours()-6);
+		System.out.println(today2);
+		
+		
+		
 		//int counter = 1;
 		for (List<Post> page : result) {
 			for (Post aPost : page) {
 				if (aPost.getMessage() != null  && aPost.getMessage().contains(procura)) {
 					String temp = aPost.getCreatedTime() + "-" + aPost.getMessage();
 					
-					if(combo.equals("Este ano")) {
-						if(today.getYear()==aPost.getCreatedTime().getYear()) {
+					if(combo.equals("Última hora")) {
+						if(today.getHours()==aPost.getCreatedTime().getHours() && today.getDay()== aPost.getCreatedTime().getDay() && today.getMonth() == aPost.getCreatedTime().getMonth() && today.getYear() == aPost.getCreatedTime().getYear() ) {
 							posts.add(temp);
 						//	counter++;
 						}
 					}
-					else if(combo.equals("Este mês")) {
-						if(today.getYear()==aPost.getCreatedTime().getYear() && today.getMonth()==aPost.getCreatedTime().getMonth()) {
+					else if(combo.equals("Últimas 6 horas")) {
+					
+						if(today.getDay()== aPost.getCreatedTime().getDay() && today.getMonth() == aPost.getCreatedTime().getMonth() && today.getYear() == aPost.getCreatedTime().getYear()) {
+							if(aPost.getCreatedTime().before(today) && aPost.getCreatedTime().after(today2)) {
 							posts.add(temp);
 							//counter++;
 						}
@@ -80,7 +91,7 @@ public class Facebook {
 				}
 
 			}
-		}
+			}}
 
 	}
 

@@ -10,10 +10,12 @@ import java.util.Date;
 import java.util.List;
 
 public class TwitterES {
-	public String procura;
+	private String procura;
 	private List<Status> statuses;
 	public ArrayList<String> tweets = new ArrayList<String>();
 	Date today = new Date();
+	
+	Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
 
 	/**
 	 * Construtor que estabelece as ligações com os access token key e introduz
@@ -26,7 +28,7 @@ public class TwitterES {
 
 	public TwitterES(String procura, String combo) {
 		this.procura = procura;
-
+		today2.setHours(today.getHours()-6);
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
 			cb.setDebugEnabled(true).setOAuthConsumerKey("GudSUSay8T8kjEmvaKn83vcZl")
@@ -37,30 +39,29 @@ public class TwitterES {
 			Twitter twitter = tf.getInstance();
 
 			statuses = twitter.getHomeTimeline();
-			
-			int counter=1;
+	
 			
 			
 			for (Status status : statuses) {
 				
 				if (status.getUser().getName() != null   && status.getUser().getName().contains(procura)) {
 					String tweet = status.getCreatedAt() + "-" + status.getUser().getName() + "-" + status.getText();
-					tweets.add(tweet);
+					
 
-					if (combo.equals("Este ano")) {
-						if (today.getYear() == status.getCreatedAt().getYear()) {
+					if (combo.equals("Última hora")) {
+						if (today.getHours()==status.getCreatedAt().getHours() && today.getDay()== status.getCreatedAt().getDay() && today.getMonth() == status.getCreatedAt().getMonth() && today.getYear() == status.getCreatedAt().getYear() ) {
 							tweets.add(tweet);
-							counter++;
+							
 						}
-					} else if (combo.equals("Este mês")) {
-						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth()) {
+					} else if (combo.equals("Últimas 6 horas")) {
+						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth() && today.getDay()== status.getCreatedAt().getDay()) {
+							if(status.getCreatedAt().before(today) && status.getCreatedAt().after(today2)) {
 							tweets.add(tweet);
-							counter++;
-						}
-					} else if (combo.equals("Este dia")) {
+							
+						}}
+					} else if (combo.equals("Últimas 24 horas")) {
 						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth() && today.getDay() == status.getCreatedAt().getDay()) {
 							tweets.add(tweet);
-							counter++;
 						}
 					}
 
