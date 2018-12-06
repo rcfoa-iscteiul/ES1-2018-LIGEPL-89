@@ -2,22 +2,26 @@ package Interface;
 
 import java.util.Date;
 
+import com.restfb.types.User;
+
 public class Info {
 	private Date date;
 	private String from;
 	private String content;
 	private int likes;
-	private int reactions;
+	private int shares;
 	private int comments;
+	private String redeSocial;
 	
 	
-	public Info(Date date, String from, String content, int likes, int reactions, int comments) {
+	public Info(Date date, String from, String content, int likes, int shares, int comments, String redeSocial) {
 		this.date = date;
 		this.from = from;
 		this.content = content;
 		this.likes = likes;
-		this.reactions = reactions;
+		this.shares = shares;
 		this.comments = comments;
+		this.redeSocial=redeSocial;
 	}
 
 
@@ -61,13 +65,13 @@ public class Info {
 	}
 
 
-	public int getReactions() {
-		return reactions;
+	public int getShares() {
+		return shares;
 	}
 
 
-	public void setReactions(int reactions) {
-		this.reactions = reactions;
+	public void setShares(int shares) {
+		this.shares = shares;
 	}
 
 
@@ -78,6 +82,29 @@ public class Info {
 
 	public void setComments(int comments) {
 		this.comments = comments;
+	}
+	
+	
+
+
+	public String getRedeSocial() {
+		return redeSocial;
+	}
+
+
+	public void setRedeSocial(String redeSocial) {
+		this.redeSocial = redeSocial;
+	}
+
+
+	@Override
+	public String toString() {
+		if(redeSocial.equals("facebook")) {
+			return date+" - "+content;
+			
+		}
+			return date+"	"+from+" - "+content;
+		
 	}
 	
 	
