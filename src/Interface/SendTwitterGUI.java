@@ -23,7 +23,10 @@ import java.util.ArrayList;
 public class SendTwitterGUI extends JFrame {
 
 	private JPanel contentPane;
-
+	
+	public JPanel getPanel(){
+		return contentPane;
+	}
 	
 	public SendTwitterGUI(ArrayList<String> tokens) {
 		setBounds(100, 100, 602, 303);

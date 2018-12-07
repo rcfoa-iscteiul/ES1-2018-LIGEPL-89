@@ -28,6 +28,9 @@ public class SendInformationGUI extends JFrame {
 	/** The content pane. */
 	private JPanel contentPane;
 	
+	public JPanel getPanel(){
+		return contentPane;
+	}
 	/** The welcome. */
 	private WelcomeGUI welcome;
 	

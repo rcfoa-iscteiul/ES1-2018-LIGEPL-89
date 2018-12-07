@@ -28,7 +28,10 @@ public class SendFacebookGUI extends JFrame {
 
 	/** The content pane. */
 	private JPanel contentPane;
-
+	
+	public JPanel getPanel(){
+		return contentPane;
+	}
 
 	/**
 	 * Instantiates a new send facebook GUI.

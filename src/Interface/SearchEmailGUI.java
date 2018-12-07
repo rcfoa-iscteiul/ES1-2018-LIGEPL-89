@@ -42,7 +42,9 @@ public class SearchEmailGUI extends JFrame {
 	
 	private String pass;
 	
-	
+	public JPanel getPanel(){
+		return contentPane;
+	}
 
 	
 	/**

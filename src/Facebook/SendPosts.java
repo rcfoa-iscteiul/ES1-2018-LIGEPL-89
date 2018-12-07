@@ -15,6 +15,10 @@ import com.restfb.types.Post;
 public class SendPosts {
 	private FacebookClient fbClient5;
 	
+	public FacebookClient getClient(){
+		return fbClient5;
+	}
+	
 	public SendPosts(String token) {
 		FacebookClient fbClient5 = new DefaultFacebookClient(token);
 		Connection<Post> result = fbClient5.fetchConnection("me/feed",Post.class);

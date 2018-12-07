@@ -39,6 +39,10 @@ public class RegisterGUI extends JFrame {
 	private JPasswordField txtEmailPassword;
 	
 
+	
+	public JPanel getPanel(){
+		return contentPane;
+	}
 	/**
 	 * Launch the application.
 	 */

@@ -44,6 +44,10 @@ public class SearchInformationGUI extends JFrame {
 	/** The content pane. */
 	private JPanel contentPane;
 	
+	public JPanel getPanel(){
+		return contentPane;
+	}
+	
 	/** The text field. */
 	private JTextField textField;
 	

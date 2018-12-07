@@ -22,6 +22,9 @@ public class TwitterES {
 	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
 	private Twitter twitter;
 	
+	public String getProcura(){
+		return procura;
+	}
 
 	/**
 	 * Construtor que estabelece as ligações com os access token key e introduz
