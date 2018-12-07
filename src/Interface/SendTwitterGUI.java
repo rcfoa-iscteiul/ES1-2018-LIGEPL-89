@@ -18,27 +18,8 @@ public class SendTwitterGUI extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SendTwitterGUI frame = new SendTwitterGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public SendTwitterGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 303);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,14 +36,9 @@ public class SendTwitterGUI extends JFrame {
 		textPane.setBounds(46, 151, 514, 68);
 		contentPane.add(textPane);
 		
-		JButton btnClose = new JButton("Close");
-		btnClose.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnClose.setBounds(319, 230, 230, 23);
-		contentPane.add(btnClose);
-		
 		JButton btnSend = new JButton("Send");
 		btnSend.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnSend.setBounds(56, 230, 230, 23);
+		btnSend.setBounds(187, 230, 230, 23);
 		contentPane.add(btnSend);
 		
 		JLabel lblNewLabel_1 = new JLabel("Please write the tweet you want to publish on your Twitter:");
@@ -75,5 +51,9 @@ public class SendTwitterGUI extends JFrame {
 		label.setIcon(new ImageIcon(SendTwitterGUI.class.getResource("/Image/twitter2.png")));
 		label.setBounds(490, 11, 75, 68);
 		contentPane.add(label);
+	}
+	
+	public void janelaVisivel() {
+		setVisible(true);
 	}
 }
