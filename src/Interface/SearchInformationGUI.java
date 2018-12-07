@@ -43,45 +43,45 @@ public class SearchInformationGUI extends JFrame {
 
 	/** The content pane. */
 	private JPanel contentPane;
-	
-	public JPanel getPanel(){
+
+	public JPanel getPanel() {
 		return contentPane;
 	}
-	
+
 	/** The text field. */
 	private JTextField textField;
-	
+
 	/** The f. */
 	private Facebook f;
-	
+
 	/** The t. */
 	private TwitterES t;
-	
+
 	/** The m. */
 	private Mail m;
-	
+
 	/** The twitter button. */
 	private JRadioButton twitterButton = new JRadioButton("");
-	
+
 	/** The facebook button. */
 	private JRadioButton facebookButton = new JRadioButton("");
-	
+
 	/** The email button. */
 	private JRadioButton emailButton = new JRadioButton("");
-	
+
 	/** The jlist. */
 	private JList<Info> jlist;
-	
+
 	/** The model. */
 	private DefaultListModel<Info> model = new DefaultListModel<>();
-	
-	private ArrayList<String> tokens=new ArrayList<>();
+
+	private ArrayList<String> tokens = new ArrayList<>();
 
 	/**
 	 * Instantiates a new search information GUI.
 	 */
 	public SearchInformationGUI(ArrayList<String> tokens) {
-		this.tokens=tokens;
+		this.tokens = tokens;
 		System.out.println(InfoXPath.getInstance().getTokens());
 		setBounds(100, 100, 852, 624);
 		contentPane = new JPanel();
@@ -131,7 +131,8 @@ public class SearchInformationGUI extends JFrame {
 		contentPane.add(emailButton);
 
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "\u00DAltima hora", "\u00DAltimas 6 horas", "\u00DAltimas 24 horas", "Todos" }));
+		comboBox.setModel(new DefaultComboBoxModel(
+				new String[] { "\u00DAltima hora", "\u00DAltimas 6 horas", "\u00DAltimas 24 horas", "Todos" }));
 		comboBox.setBounds(574, 123, 104, 20);
 		contentPane.add(comboBox);
 
@@ -141,15 +142,16 @@ public class SearchInformationGUI extends JFrame {
 				model.clear();
 
 				if (twitterButton.isSelected()) {
-					t = new TwitterES(textField.getText(), comboBox.getSelectedItem().toString(),tokens.get(2),tokens.get(3),tokens.get(4),tokens.get(5));
-
+					t = new TwitterES(textField.getText(), comboBox.getSelectedItem().toString(), tokens.get(2),
+							tokens.get(3), tokens.get(4), tokens.get(5));
+					t.tweet();
 					for (Info s : t.getTweets()) {
 						model.addElement(s);
 					}
 				}
 
 				else if (facebookButton.isSelected()) {
-					f = new Facebook(textField.getText(), comboBox.getSelectedItem().toString(),tokens.get(6));
+					f = new Facebook(textField.getText(), comboBox.getSelectedItem().toString(), tokens.get(6));
 
 					for (Info s : f.getPosts()) {
 						model.addElement(s);
@@ -158,7 +160,8 @@ public class SearchInformationGUI extends JFrame {
 				}
 
 				else if (emailButton.isSelected()) {
-					m = new Mail(comboBox.getSelectedItem().toString(), textField.getText(),tokens.get(0),tokens.get(1));
+					m = new Mail(comboBox.getSelectedItem().toString(), textField.getText(), tokens.get(0),
+							tokens.get(1));
 					m.check();
 
 					for (Info mails : m.getMails()) {
@@ -223,10 +226,11 @@ public class SearchInformationGUI extends JFrame {
 					}
 				}
 				if (clicked.getRedeSocial().equals("email")) {
-					String emailFormatado=formatarEmail(clicked.getFrom());
-					SearchEmailGUI tgui = new SearchEmailGUI(emailFormatado,clicked.getContent(), tokens.get(0), tokens.get(1));
-					tgui.setContent("DATE: " + clicked.getDate() + "\n" + "FROM: " + emailFormatado + "\n" + "\n" +"SUBJECT: "+clicked.getSubject()+"\n"
-							+ "Mail: " +clicked.getContent());
+					String emailFormatado = formatarEmail(clicked.getFrom());
+					SearchEmailGUI tgui = new SearchEmailGUI(emailFormatado, clicked.getContent(), tokens.get(0),
+							tokens.get(1));
+					tgui.setContent("DATE: " + clicked.getDate() + "\n" + "FROM: " + emailFormatado + "\n" + "\n"
+							+ "SUBJECT: " + clicked.getSubject() + "\n" + "Mail: " + clicked.getContent());
 					tgui.constroiJanela();
 
 				}
@@ -244,17 +248,16 @@ public class SearchInformationGUI extends JFrame {
 		});
 
 	}
-	
+
 	public String formatarEmail(String s) {
-		String[] aux=s.split("<");
-		String primeiraParte=aux[1];
-		aux=primeiraParte.split(">");
-		String parteFinal=aux[0];
-		
+		String[] aux = s.split("<");
+		String primeiraParte = aux[1];
+		aux = primeiraParte.split(">");
+		String parteFinal = aux[0];
+
 		return parteFinal;
 	}
-	
-	
+
 	/**
 	 * Janela visivel.
 	 */

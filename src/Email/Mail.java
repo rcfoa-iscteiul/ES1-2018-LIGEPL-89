@@ -20,16 +20,16 @@ public class Mail {
 	private String combo;
 	private ArrayList<Info> mails = new ArrayList<Info>();
 	private String procura;
-	Date today = new Date();
-	Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
+	private Date today = new Date();
+	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
 	private String mail;
 	private String pass;
 
 	public Mail(String combo, String procura, String mail, String pass) {
 		this.combo = combo;
 		this.procura = procura;
-		this.mail=mail;
-		this.pass=pass;
+		this.mail = mail;
+		this.pass = pass;
 		today2.setHours(today.getHours() - 6);
 	}
 
@@ -39,9 +39,9 @@ public class Mail {
 			String user = mail;
 			String password = pass;
 			String host = "pop.gmail.com";
-			
-			if(mail.contains("iscte-iul.pt")) {
-				host="outlook.office365.com";
+
+			if (mail.contains("iscte-iul.pt")) {
+				host = "outlook.office365.com";
 			}
 
 			Properties properties = new Properties();
@@ -56,30 +56,18 @@ public class Mail {
 			Message[] messages = emailFolder.getMessages();
 			System.out.println("messages.length---" + (messages.length - 1));
 
-			
-			
-			for (int i = messages.length-1; i>0; i--) {
-				Message message=messages[i];
+			for (int i = messages.length - 1; i > 0; i--) {
+				Message message = messages[i];
 
-//				BodyPart bodyPart=mp.getBodyPart(i);
-//				if (bodyPart.isMimeType("text/*")) {
-//					String s=(String) bodyPart.getContent();
-//					System.out.println(s);
-//				}
-				
 				String conteudo = "";
-				
-				
+
 				if (message.isMimeType("text/*")) {
-					 conteudo = message.getContent().toString();
+					conteudo = message.getContent().toString();
 				} else if (message.isMimeType("multipart/*")) {
 					MimeMultipart messag = (MimeMultipart) message.getContent();
 					conteudo = getTextFromMimeMultipart(messag);
 				}
-		         
-		      
-				
-				
+
 				if (message != null && message.getFrom()[0].toString().contains(procura)) {
 
 					if (combo.equals("Última hora")) {
@@ -88,7 +76,7 @@ public class Mail {
 								&& message.getSentDate().getDay() == today.getDay()
 										& message.getSentDate().getHours() == today.getHours()) {
 							mails.add(new Info(message.getSentDate(), message.getFrom()[0].toString(),
-									message.getSubject(),conteudo, -1, -1, -1,-1, "email"));
+									message.getSubject(), conteudo, -1, -1, -1, -1, "email"));
 
 						}
 					} else if (combo.equals("Últimas 6 horas")) {
@@ -97,18 +85,18 @@ public class Mail {
 								&& message.getSentDate().getDay() == today.getDay()) {
 							if (message.getSentDate().before(today) && message.getSentDate().after(today2)) {
 								mails.add(new Info(message.getSentDate(), message.getFrom()[0].toString(),
-										message.getSubject(),conteudo, -1, -1, -1, -1,"email"));
+										message.getSubject(), conteudo, -1, -1, -1, -1, "email"));
 							}
 						}
 					} else if (combo.equals("Últimas 24 horas")) {
 						if (message.getSentDate().getYear() == today.getYear()
 								&& message.getSentDate().getMonth() == today.getMonth()) {
 							mails.add(new Info(message.getSentDate(), message.getFrom()[0].toString(),
-									message.getSubject(),conteudo, -1, -1, -1,-1, "email"));
+									message.getSubject(), conteudo, -1, -1, -1, -1, "email"));
 						}
-					}else if(combo.equals("Todos")) {
-						mails.add(new Info(message.getSentDate(), message.getFrom()[0].toString(),
-								message.getSubject(),conteudo, -1, -1, -1,-1, "email"));
+					} else if (combo.equals("Todos")) {
+						mails.add(new Info(message.getSentDate(), message.getFrom()[0].toString(), message.getSubject(),
+								conteudo, -1, -1, -1, -1, "email"));
 					}
 				}
 			}
@@ -123,7 +111,7 @@ public class Mail {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws MessagingException, IOException {
 		String conteudo = null;
 		for (int i = 0; i < mimeMultipart.getCount(); i++) {
@@ -148,7 +136,5 @@ public class Mail {
 	public ArrayList<Info> getMails() {
 		return mails;
 	}
-	
-
 
 }

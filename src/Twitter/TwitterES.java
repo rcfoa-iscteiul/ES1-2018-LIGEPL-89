@@ -19,10 +19,11 @@ public class TwitterES {
 	private List<Status> statuses;
 	private ArrayList<Info> tweets = new ArrayList<Info>();
 	private Date today = new Date();
-	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
+	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
 	private Twitter twitter;
-	
-	public String getProcura(){
+	private String combo;
+
+	public String getProcura() {
 		return procura;
 	}
 
@@ -35,58 +36,70 @@ public class TwitterES {
 	 * 
 	 */
 
-	public TwitterES(String procura, String combo, String consumerKey, String consumerSecret, String accessToken, String tokenSecret) {
+	public TwitterES(String procura, String combo, String consumerKey, String consumerSecret, String accessToken,
+			String tokenSecret) {
 		this.procura = procura;
-		today2.setHours(today.getHours()-6);
+		this.combo = combo;
+		today2.setHours(today.getHours() - 6);
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
-			cb.setDebugEnabled(true).setOAuthConsumerKey(consumerKey)
-					.setOAuthConsumerSecret(consumerSecret)
-					.setOAuthAccessToken(accessToken)
-					.setOAuthAccessTokenSecret(tokenSecret);
+			cb.setDebugEnabled(true).setOAuthConsumerKey(consumerKey).setOAuthConsumerSecret(consumerSecret)
+					.setOAuthAccessToken(accessToken).setOAuthAccessTokenSecret(tokenSecret);
 			TwitterFactory tf = new TwitterFactory(cb.build());
-			 twitter = tf.getInstance();
-			
-			
+			twitter = tf.getInstance();
 
 			statuses = twitter.getHomeTimeline();
-	
-			
-			
-			for (Status status : statuses) {
-				
-				if (status.getUser().getName() != null   && status.getUser().getName().contains(procura)) {
-					String tweet = status.getCreatedAt() + "-" + status.getUser().getName() + "-" + status.getText();
-					
-
-					if (combo.equals("Última hora")) {
-						if (today.getHours()==status.getCreatedAt().getHours() && today.getDay()== status.getCreatedAt().getDay() && today.getMonth() == status.getCreatedAt().getMonth() && today.getYear() == status.getCreatedAt().getYear() ) {
-							tweets.add(new Info(status.getCreatedAt(),status.getUser().getName(),null,status.getText(),status.getFavoriteCount(),status.getRetweetCount(),-1,status.getId(),"twitter"));
-						}
-					} else if (combo.equals("Últimas 6 horas")) {
-						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth() && today.getDay()== status.getCreatedAt().getDay()) {
-							if(status.getCreatedAt().before(today) && status.getCreatedAt().after(today2)) {
-								tweets.add(new Info(status.getCreatedAt(),status.getUser().getName(),null,status.getText(),status.getFavoriteCount(),status.getRetweetCount(),-1,status.getId(),"twitter"));
-							
-						}}
-					} else if (combo.equals("Últimas 24 horas")) {
-						if (today.getYear() == status.getCreatedAt().getYear() && today.getMonth() == status.getCreatedAt().getMonth() && today.getDay() == status.getCreatedAt().getDay()) {
-							tweets.add(new Info(status.getCreatedAt(),status.getUser().getName(),null,status.getText(),status.getFavoriteCount(),status.getRetweetCount(),-1,status.getId(),"twitter"));
-						}
-					}
-
-		}
-
-			}
-			
 
 		} catch (TwitterException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public void tweet() {
+
+		for (Status status : statuses) {
+
+			if (status.getUser().getName() != null && status.getUser().getName().contains(procura)) {
+				String tweet = status.getCreatedAt() + "-" + status.getUser().getName() + "-" + status.getText();
+
+				if (combo.equals("Última hora")) {
+					if (today.getHours() == status.getCreatedAt().getHours()
+							&& today.getDay() == status.getCreatedAt().getDay()
+							&& today.getMonth() == status.getCreatedAt().getMonth()
+							&& today.getYear() == status.getCreatedAt().getYear()) {
+						tweets.add(new Info(status.getCreatedAt(), status.getUser().getName(), null, status.getText(),
+								status.getFavoriteCount(), status.getRetweetCount(), -1, status.getId(), "twitter"));
+					}
+				} else if (combo.equals("Últimas 6 horas")) {
+					if (today.getYear() == status.getCreatedAt().getYear()
+							&& today.getMonth() == status.getCreatedAt().getMonth()
+							&& today.getDay() == status.getCreatedAt().getDay()) {
+						if (status.getCreatedAt().before(today) && status.getCreatedAt().after(today2)) {
+							tweets.add(new Info(status.getCreatedAt(), status.getUser().getName(), null,
+									status.getText(), status.getFavoriteCount(), status.getRetweetCount(), -1,
+									status.getId(), "twitter"));
+
+						}
+					}
+				} else if (combo.equals("Últimas 24 horas")) {
+					if (today.getYear() == status.getCreatedAt().getYear()
+							&& today.getMonth() == status.getCreatedAt().getMonth()
+							&& today.getDay() == status.getCreatedAt().getDay()) {
+						tweets.add(new Info(status.getCreatedAt(), status.getUser().getName(), null, status.getText(),
+								status.getFavoriteCount(), status.getRetweetCount(), -1, status.getId(), "twitter"));
+					}
+				} else if (combo.equals("Todos")) {
+					tweets.add(new Info(status.getCreatedAt(), status.getUser().getName(), null, status.getText(),
+							status.getFavoriteCount(), status.getRetweetCount(), -1, status.getId(), "twitter"));
+				}
+
+			}
+
+		}
+	}
+
 	public void retweet(long id) {
-	    try {
+		try {
 			twitter.retweetStatus(id);
 			JOptionPane.showMessageDialog(null, "Retweeted!");
 

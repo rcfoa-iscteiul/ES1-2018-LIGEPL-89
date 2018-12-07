@@ -1,6 +1,5 @@
 package Interface;
 
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.HeadlessException;
@@ -28,40 +27,38 @@ public class SearchEmailGUI extends JFrame {
 
 	/** The content pane. */
 	private JPanel contentPane;
-	
+
 	/** The content. */
 	private String content;
-	
+
 	/** The to. */
 	private String to;
-	
+
 	/** The subj. */
 	private String subj;
-	
+
 	private String mail;
-	
+
 	private String pass;
-	
-	public JPanel getPanel(){
+
+	public JPanel getPanel() {
 		return contentPane;
 	}
 
-	
 	/**
 	 * Instantiates a new search email GUI.
 	 *
-	 * @param to the to
+	 * @param to   the to
 	 * @param subj the subj
 	 * @throws HeadlessException the headless exception
 	 */
-	public SearchEmailGUI(String to, String subj,String mail, String pass) throws HeadlessException {
+	public SearchEmailGUI(String to, String subj, String mail, String pass) throws HeadlessException {
 		super();
 		this.to = to;
 		this.subj = subj;
-		this.mail=mail;
-		this.pass=pass;
+		this.mail = mail;
+		this.pass = pass;
 	}
-
 
 	/**
 	 * Instantiates a new search email GUI.
@@ -71,30 +68,23 @@ public class SearchEmailGUI extends JFrame {
 	public SearchEmailGUI() throws HeadlessException {
 	}
 
-
 	/**
 	 * Gets the content.
 	 *
 	 * @return the content
 	 */
 	public String getContent() {
-			return content;
-		}
+		return content;
+	}
 
-
-
-
-		/**
-		 * Sets the content.
-		 *
-		 * @param content the new content
-		 */
-		public void setContent(String content) {
-			this.content = content;
-		}
-
-
-
+	/**
+	 * Sets the content.
+	 *
+	 * @param content the new content
+	 */
+	public void setContent(String content) {
+		this.content = content;
+	}
 
 	/**
 	 * Constroi janela.
@@ -105,18 +95,18 @@ public class SearchEmailGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel label = new JLabel("");
 		label.setBounds(69, 11, 46, 14);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(label);
-		
+
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(SearchEmailGUI.class.getResource("/Image/bomdia2.jpg")));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(10, 11, 597, 58);
 		contentPane.add(label_1);
-		
+
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(10, 100, 597, 303);
 		textArea.setText(content);
@@ -124,20 +114,20 @@ public class SearchEmailGUI extends JFrame {
 		JScrollPane sp = new JScrollPane(textArea);
 		sp.setBounds(10, 100, 597, 303);
 		contentPane.add(sp);
-		
+
 		JButton answerButton = new JButton("Answer");
 		answerButton.setBounds(45, 414, 221, 23);
 		answerButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RespondEmailGUI gui=new RespondEmailGUI(to, subj, mail, pass);
+				RespondEmailGUI gui = new RespondEmailGUI(to, subj, mail, pass);
 				gui.janelaVisivel();
 			}
 		});
-		
+
 		contentPane.add(answerButton);
-		
+
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(SearchEmailGUI.class.getResource("/Image/gmail.png")));
 		label_2.setBounds(515, 11, 81, 58);

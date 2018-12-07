@@ -22,16 +22,16 @@ public class SearchFacebookGUI extends JFrame {
 
 	/** The content pane. */
 	private JPanel contentPane;
-	
+
 	/** The likes. */
 	private int likes;
-	
+
 	/** The shares. */
 	private int shares;
-	
+
 	/** The comments. */
 	private int comments;
-	
+
 	/** The post. */
 	private String post;
 
@@ -135,7 +135,7 @@ public class SearchFacebookGUI extends JFrame {
 		JScrollPane sp = new JScrollPane(textArea);
 		sp.setBounds(10, 127, 597, 180);
 		contentPane.add(sp);
-		
+
 		JButton btnClose = new JButton("Close");
 		btnClose.setBounds(187, 318, 242, 23);
 		contentPane.add(btnClose);

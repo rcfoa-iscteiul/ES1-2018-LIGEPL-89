@@ -14,28 +14,22 @@ import com.restfb.types.Post;
 
 public class SendPosts {
 	private FacebookClient fbClient5;
-	
-	public FacebookClient getClient(){
+
+	public FacebookClient getClient() {
 		return fbClient5;
 	}
-	
+
 	public SendPosts(String token) {
-		FacebookClient fbClient5 = new DefaultFacebookClient(token);
-		Connection<Post> result = fbClient5.fetchConnection("me/feed",Post.class);
+		fbClient5 = new DefaultFacebookClient(token);
+		Connection<Post> result = fbClient5.fetchConnection("me/feed", Post.class);
 	}
-	
 
 	public void sendPost(String post) {
-		
-		
-		GraphResponse publishMessageResponse =
-		fbClient5.publish("me/feed", GraphResponse.class,
-		Parameter.with("message", post));
+
+		GraphResponse publishMessageResponse = fbClient5.publish("me/feed", GraphResponse.class,
+				Parameter.with("message", post));
 		JOptionPane.showMessageDialog(null, "Post send");
 
 	}
-	
-	
-	
 
 }

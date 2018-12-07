@@ -18,33 +18,30 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
-
-
 public class SendMail {
 	private String mail;
 	private String pass;
 
-	
-		public SendMail(String mail, String pass) {
+	public SendMail(String mail, String pass) {
 		this.mail = mail;
 		this.pass = pass;
 	}
 
-		public void send(String mailDestino, String sub, String message) {	
+	public void send(String mailDestino, String sub, String message) {
 		String senderEmail = mail;
-		 String password = pass;
-		 String host="smtp.gmail.com";
-		 
-		 if(host.contains("iscte-iul.pt")) {
-			 host="smtp.office365.com";
-		 }
-		
+		String password = pass;
+		String host = "smtp.gmail.com";
+
+		if (host.contains("iscte-iul.pt")) {
+			host = "smtp.office365.com";
+		}
+
 		Properties propvls = new Properties();
 		propvls.put("mail.smtp.auth", "true");
 		propvls.put("mail.smtp.starttls.enable", "true");
 		propvls.put("mail.smtp.host", host);
 		propvls.put("mail.smtp.port", "587");
-		
+
 		Session sessionobj = Session.getInstance(propvls, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(senderEmail, password);
@@ -60,15 +57,11 @@ public class SendMail {
 			Transport.send(messageobj);
 			JOptionPane.showMessageDialog(null, "Email send!");
 
-			
 		} catch (MessagingException exp) {
 			JOptionPane.showMessageDialog(null, "Bom Dia Academia", "Email NOT send!", JOptionPane.ERROR_MESSAGE);
 
 			throw new RuntimeException(exp);
 		}
 	}
-
-	
-	
 
 }

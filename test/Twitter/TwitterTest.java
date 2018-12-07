@@ -19,8 +19,7 @@ public class TwitterTest extends TestCase{
 	@Override
 	public void setUp(){
 		tw = new TwitterES(procura, combo,m,c,k,i);
-	}
-	
+	}	
 	public void testAdd(){
 		String test = tw.getProcura();
 		assertEquals("procura", test);

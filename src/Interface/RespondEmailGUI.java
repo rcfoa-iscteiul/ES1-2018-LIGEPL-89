@@ -28,8 +28,8 @@ public class RespondEmailGUI extends JFrame {
 
 	/** The subj. */
 	private String subj;
-	
-	public JPanel getPanel(){
+
+	public JPanel getPanel() {
 		return contentPane;
 	}
 

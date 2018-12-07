@@ -9,17 +9,14 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class SendTweet {
 	private Twitter twitter;
-	
+
 	public SendTweet(String consumerKey, String consumerSecret, String accessToken, String tokenSecret) {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
-		cb.setDebugEnabled(true).setOAuthConsumerKey(consumerKey)
-				.setOAuthConsumerSecret(consumerSecret)
-				.setOAuthAccessToken(accessToken)
-				.setOAuthAccessTokenSecret(tokenSecret);
+		cb.setDebugEnabled(true).setOAuthConsumerKey(consumerKey).setOAuthConsumerSecret(consumerSecret)
+				.setOAuthAccessToken(accessToken).setOAuthAccessTokenSecret(tokenSecret);
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		twitter = tf.getInstance();
 	}
-	
 
 	public void enviaTweet(String tweet) {
 		try {
@@ -31,6 +28,5 @@ public class SendTweet {
 			e.printStackTrace();
 		}
 	}
-	
 
 }

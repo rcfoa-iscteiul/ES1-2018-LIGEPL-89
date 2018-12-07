@@ -30,7 +30,7 @@ public class Facebook {
 	ArrayList<Info> posts = new ArrayList<Info>();
 	List<Date> tempos = new ArrayList<Date>();
 	Date today = new Date();
-	Date today2 = new Date(today.getYear(), today.getMonth(), today.getHours());
+	Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
 
 	/**
 	 * Construtor que estabelece as ligações com os access token key e introduz
@@ -59,16 +59,16 @@ public class Facebook {
 								&& today.getYear() == aPost.getCreatedTime().getYear()) {
 							posts.add(new Info(aPost.getCreatedTime(), null, null, aPost.getMessage(),
 									toIntExact(aPost.getLikesCount()), toIntExact(aPost.getSharesCount()),
-									toIntExact(aPost.getCommentsCount()), -1,"facebook"));
+									toIntExact(aPost.getCommentsCount()), -1, "facebook"));
 						}
 					} else if (combo.equals("Últimas 6 horas")) {
 						if (today.getDay() == aPost.getCreatedTime().getDay()
 								&& today.getMonth() == aPost.getCreatedTime().getMonth()
 								&& today.getYear() == aPost.getCreatedTime().getYear()) {
 							if (aPost.getCreatedTime().before(today) && aPost.getCreatedTime().after(today2)) {
-								posts.add(new Info(aPost.getCreatedTime(), null, null,aPost.getMessage(),
+								posts.add(new Info(aPost.getCreatedTime(), null, null, aPost.getMessage(),
 										toIntExact(aPost.getLikesCount()), toIntExact(aPost.getSharesCount()),
-										toIntExact(aPost.getCommentsCount()), -1,"facebook"));
+										toIntExact(aPost.getCommentsCount()), -1, "facebook"));
 							}
 						}
 					} else if (combo.equals("Últimas 24 horas")) {
@@ -76,14 +76,14 @@ public class Facebook {
 								&& today.getMonth() == aPost.getCreatedTime().getMonth()
 								&& today.getDay() == aPost.getCreatedTime().getDay()) {
 
-							posts.add(new Info(aPost.getCreatedTime(), null, null,aPost.getMessage(),
+							posts.add(new Info(aPost.getCreatedTime(), null, null, aPost.getMessage(),
 									toIntExact(aPost.getLikesCount()), toIntExact(aPost.getSharesCount()),
-									toIntExact(aPost.getCommentsCount()), -1,"facebook"));
+									toIntExact(aPost.getCommentsCount()), -1, "facebook"));
 						}
-					}else if(combo.equals("Todos")) {
-						posts.add(new Info(aPost.getCreatedTime(), null, null,aPost.getMessage(),
+					} else if (combo.equals("Todos")) {
+						posts.add(new Info(aPost.getCreatedTime(), null, null, aPost.getMessage(),
 								toIntExact(aPost.getLikesCount()), toIntExact(aPost.getSharesCount()),
-								toIntExact(aPost.getCommentsCount()), -1,"facebook"));
+								toIntExact(aPost.getCommentsCount()), -1, "facebook"));
 					}
 
 				}
@@ -99,7 +99,6 @@ public class Facebook {
 	 * 
 	 * @return o acces token.
 	 */
-
 
 	/**
 	 * Função que retorna a lista com todos os posts conforme o filtro selecionado
