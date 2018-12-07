@@ -2,45 +2,41 @@ package Interface;
 
 import java.util.Date;
 
-import com.restfb.types.User;
-
-
 /**
  * The Class Info.
  */
 public class Info {
-	
+
 	/** The date. */
 	private Date date;
-	
+
 	/** The from. */
 	private String from;
-	
+
 	/** The content. */
 	private String content;
-	
+
 	/** The likes. */
 	private int likes;
-	
+
 	/** The shares. */
 	private int shares;
-	
+
 	/** The comments. */
 	private int comments;
-	
+
 	/** The rede social. */
 	private String redeSocial;
-	
-	
+
 	/**
 	 * Instantiates a new info.
 	 *
-	 * @param date the date
-	 * @param from the from
-	 * @param content the content
-	 * @param likes the likes
-	 * @param shares the shares
-	 * @param comments the comments
+	 * @param date       the date
+	 * @param from       the from
+	 * @param content    the content
+	 * @param likes      the likes
+	 * @param shares     the shares
+	 * @param comments   the comments
 	 * @param redeSocial the rede social
 	 */
 	public Info(Date date, String from, String content, int likes, int shares, int comments, String redeSocial) {
@@ -50,9 +46,8 @@ public class Info {
 		this.likes = likes;
 		this.shares = shares;
 		this.comments = comments;
-		this.redeSocial=redeSocial;
+		this.redeSocial = redeSocial;
 	}
-
 
 	/**
 	 * Gets the date.
@@ -63,7 +58,6 @@ public class Info {
 		return date;
 	}
 
-
 	/**
 	 * Sets the date.
 	 *
@@ -72,7 +66,6 @@ public class Info {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 
 	/**
 	 * Gets the from.
@@ -83,7 +76,6 @@ public class Info {
 		return from;
 	}
 
-
 	/**
 	 * Sets the from.
 	 *
@@ -92,7 +84,6 @@ public class Info {
 	public void setFrom(String from) {
 		this.from = from;
 	}
-
 
 	/**
 	 * Gets the content.
@@ -103,7 +94,6 @@ public class Info {
 		return content;
 	}
 
-
 	/**
 	 * Sets the content.
 	 *
@@ -112,7 +102,6 @@ public class Info {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 
 	/**
 	 * Gets the likes.
@@ -123,7 +112,6 @@ public class Info {
 		return likes;
 	}
 
-
 	/**
 	 * Sets the likes.
 	 *
@@ -132,7 +120,6 @@ public class Info {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-
 
 	/**
 	 * Gets the shares.
@@ -143,7 +130,6 @@ public class Info {
 		return shares;
 	}
 
-
 	/**
 	 * Sets the shares.
 	 *
@@ -152,7 +138,6 @@ public class Info {
 	public void setShares(int shares) {
 		this.shares = shares;
 	}
-
 
 	/**
 	 * Gets the comments.
@@ -163,7 +148,6 @@ public class Info {
 		return comments;
 	}
 
-
 	/**
 	 * Sets the comments.
 	 *
@@ -172,9 +156,6 @@ public class Info {
 	public void setComments(int comments) {
 		this.comments = comments;
 	}
-	
-	
-
 
 	/**
 	 * Gets the rede social.
@@ -185,7 +166,6 @@ public class Info {
 		return redeSocial;
 	}
 
-
 	/**
 	 * Sets the rede social.
 	 *
@@ -195,21 +175,19 @@ public class Info {
 		this.redeSocial = redeSocial;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * 
+	 * To string for Dates from Facebook
+	 * 
 	 */
 	@Override
 	public String toString() {
-		if(redeSocial.equals("facebook")) {
-			return date+" - "+content;
-			
-		}
-			return date+"	"+from+" - "+content;
-		
-	}
-	
-	
+		if (redeSocial.equals("facebook")) {
+			return date + " - " + content;
 
-	
+		}
+		return date + "	" + from + " - " + content;
+
+	}
+
 }
