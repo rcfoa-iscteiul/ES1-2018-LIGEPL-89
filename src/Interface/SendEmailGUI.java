@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -29,10 +30,11 @@ public class SendEmailGUI extends JFrame {
 	private JPanel contentPane;
 
 	
+	
 	/**
 	 * Instantiates a new send email GUI.
 	 */
-	public SendEmailGUI() {
+	public SendEmailGUI(ArrayList<String> tokens) {
 		
 		setBounds(100, 100, 602, 573);
 		contentPane = new JPanel();
@@ -87,13 +89,15 @@ public class SendEmailGUI extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SendMail sm=new SendMail();
+				SendMail sm=new SendMail(tokens.get(0),tokens.get(1));
 				sm.send(textPane_2.getText(), textPane_1.getText(), textPane.getText());
 			}
 		});
 		contentPane.add(btnSend);
 	}
 	
+	
+
 	/**
 	 * Janela visivel.
 	 */

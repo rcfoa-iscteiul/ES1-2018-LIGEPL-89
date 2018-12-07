@@ -1,59 +1,74 @@
 package Email;
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.util.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Properties;
+
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+
+
 
 public class SendMail {
+	private String mail;
+	private String pass;
 
-   private final String senderEmailID = "bomdiaacademiaiscte@gmail.com";
-   private final String senderPassword = "caninas6969";
-   private final String emailSMTPserver = "smtp.gmail.com";
-   private final String emailServerPort = "465";
-   private String receiverEmailID = null;
-   private static String emailSubject = "Test Mail";
-   private static String emailBody = ":)";
-   private Properties props= new Properties();
-   
-   
-  public SendMail(){
-  props.put("mail.smtp.user",senderEmailID);
-  props.put("mail.smtp.host", emailSMTPserver);
-  props.put("mail.smtp.port", emailServerPort);
-  props.put("mail.smtp.starttls.enable", "true");
-  props.put("mail.smtp.auth", "true");
-  props.put("mail.smtp.socketFactory.port", emailServerPort);
-  props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-  props.put("mail.smtp.socketFactory.fallback", "false");
-  SecurityManager security = System.getSecurityManager();
-  
-  }
-  
-  public void send(String receiverEmailID,String subject, String body) {
-	  try{  
-		  Authenticator auth = new SMTPAuthenticator();
-		  Session session = Session.getInstance(props, auth);
-		  MimeMessage msg = new MimeMessage(session);
-		  msg.setText(body);
-		  msg.setSubject(subject);
-		  msg.setFrom(new InternetAddress(senderEmailID));
-		  msg.addRecipient(Message.RecipientType.TO,
-		  new InternetAddress(receiverEmailID));
-		  Transport.send(msg);
-		  System.out.println("Message send Successfully:)"); 
-		  
-		  }catch (Exception mex){
-		  mex.printStackTrace();
-		  }
-  }
-  
-  
-  public class SMTPAuthenticator extends javax.mail.Authenticator
-  {
-  public PasswordAuthentication getPasswordAuthentication()
-  {
-  return new PasswordAuthentication(senderEmailID, senderPassword);
-  }
-  }
-  
+	
+		public SendMail(String mail, String pass) {
+		this.mail = mail;
+		this.pass = pass;
+	}
 
-     }
+		public void send(String mailDestino, String sub, String message) {	
+		String senderEmail = mail;
+		 String password = pass;
+		 String host="smtp.gmail.com";
+		 
+		 if(host.contains("iscte-iul.pt")) {
+			 host="smtp.office365.com";
+		 }
+		
+		Properties propvls = new Properties();
+		propvls.put("mail.smtp.auth", "true");
+		propvls.put("mail.smtp.starttls.enable", "true");
+		propvls.put("mail.smtp.host", host);
+		propvls.put("mail.smtp.port", "587");
+		
+		Session sessionobj = Session.getInstance(propvls, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(senderEmail, password);
+			}
+		});
+
+		try {
+			Message messageobj = new MimeMessage(sessionobj);
+			messageobj.setFrom(new InternetAddress(senderEmail));
+			messageobj.setSubject(sub);
+			messageobj.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailDestino));
+			messageobj.setText(message);
+			Transport.send(messageobj);
+			JOptionPane.showMessageDialog(null, "Email send!");
+
+			
+		} catch (MessagingException exp) {
+			JOptionPane.showMessageDialog(null, "Bom Dia Academia", "Email NOT send!", JOptionPane.ERROR_MESSAGE);
+
+			throw new RuntimeException(exp);
+		}
+	}
+
+	
+	
+
+}

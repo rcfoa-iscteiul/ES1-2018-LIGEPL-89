@@ -210,7 +210,7 @@ public class Info {
 			return date + " - " + content;
 
 		}
-		return date + "	" + from + " - " + content;
+		return date + "	- " + from + " - " + content;
 
 	}
 

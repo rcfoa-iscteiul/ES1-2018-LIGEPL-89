@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 // TODO: Auto-generated Javadoc
@@ -29,14 +30,17 @@ public class SendInformationGUI extends JFrame {
 	
 	/** The welcome. */
 	private WelcomeGUI welcome;
+	
+	private ArrayList<String> tokens;
 
  
 	
 	/**
 	 * Instantiates a new send information GUI.
 	 */
-	public SendInformationGUI() {
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public SendInformationGUI(ArrayList<String> tokens) {
+		this.tokens=tokens;
+		
 		setBounds(100, 100, 657, 455);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.control);
@@ -88,13 +92,13 @@ public class SendInformationGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(twitterButton.isSelected()||facebookButton.isSelected()||emailButton.isSelected()) {
 				if(twitterButton.isSelected()) {
-					SendTwitterGUI gui=new SendTwitterGUI();
+					SendTwitterGUI gui=new SendTwitterGUI(tokens);
 					gui.janelaVisivel();
 				}if(facebookButton.isSelected()) {
-					SendFacebookGUI gui=new SendFacebookGUI();
+					SendFacebookGUI gui=new SendFacebookGUI(tokens);
 					gui.janelaVisivel();
 				}if(emailButton.isSelected()) {
-					SendEmailGUI gui=new SendEmailGUI();
+					SendEmailGUI gui=new SendEmailGUI(tokens);
 					gui.janelaVisivel();
 				}
 				}else {

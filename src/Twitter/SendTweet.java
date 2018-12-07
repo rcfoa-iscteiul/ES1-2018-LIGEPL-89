@@ -1,5 +1,7 @@
 package Twitter;
 
+import javax.swing.JOptionPane;
+
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -8,12 +10,12 @@ import twitter4j.conf.ConfigurationBuilder;
 public class SendTweet {
 	private Twitter twitter;
 	
-	public SendTweet() {
+	public SendTweet(String consumerKey, String consumerSecret, String accessToken, String tokenSecret) {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
-		cb.setDebugEnabled(true).setOAuthConsumerKey("GudSUSay8T8kjEmvaKn83vcZl")
-				.setOAuthConsumerSecret("ZDf5MCyxXvrli75dXKkrAkAkJLFWVjp5dGYXadKLVY2ozu2d66")
-				.setOAuthAccessToken("1054165924197122049-XjeA2N2LdH4D0ALnJ0OEyHzNp4bmw4")
-				.setOAuthAccessTokenSecret("Qhu4tsevnuDzfj9Ulj7qlixwSO3m3GPC3drWJykRIekGK");
+		cb.setDebugEnabled(true).setOAuthConsumerKey(consumerKey)
+				.setOAuthConsumerSecret(consumerSecret)
+				.setOAuthAccessToken(accessToken)
+				.setOAuthAccessTokenSecret(tokenSecret);
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		twitter = tf.getInstance();
 	}
@@ -22,7 +24,10 @@ public class SendTweet {
 	public void enviaTweet(String tweet) {
 		try {
 			twitter.updateStatus(tweet);
+			JOptionPane.showMessageDialog(null, "Tweet send!");
+
 		} catch (TwitterException e) {
+			JOptionPane.showMessageDialog(null, "Bom Dia Academia", "Tweet NOT send!", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 	}

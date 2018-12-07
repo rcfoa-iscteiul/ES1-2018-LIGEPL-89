@@ -35,7 +35,7 @@ public class RespondEmailGUI extends JFrame {
 	 * @param to   the to
 	 * @param subj the subj
 	 */
-	public RespondEmailGUI(String to, String subj) {
+	public RespondEmailGUI(String to, String subj, String mail, String pass) {
 		this.subj = subj;
 		this.to = to;
 
@@ -91,7 +91,7 @@ public class RespondEmailGUI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SendMail sm = new SendMail();
+				SendMail sm = new SendMail(mail, pass);
 				sm.send(to, "RS: " + subj, textPane.getText());
 			}
 		});

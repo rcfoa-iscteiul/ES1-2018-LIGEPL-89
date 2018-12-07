@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -32,7 +33,7 @@ public class SendFacebookGUI extends JFrame {
 	/**
 	 * Instantiates a new send facebook GUI.
 	 */
-	public SendFacebookGUI() {
+	public SendFacebookGUI(ArrayList<String> tokens) {
 		setBounds(100, 100, 602, 405);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,8 +68,8 @@ public class SendFacebookGUI extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SendPosts s=new SendPosts(textPane.getText());
-				s.sendPost();
+				SendPosts s=new SendPosts(tokens.get(7));
+				s.sendPost(textPane.getText());
 			}
 		});
 		contentPane.add(btnSend);

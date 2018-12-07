@@ -38,6 +38,10 @@ public class SearchEmailGUI extends JFrame {
 	/** The subj. */
 	private String subj;
 	
+	private String mail;
+	
+	private String pass;
+	
 	
 
 	
@@ -48,10 +52,12 @@ public class SearchEmailGUI extends JFrame {
 	 * @param subj the subj
 	 * @throws HeadlessException the headless exception
 	 */
-	public SearchEmailGUI(String to, String subj) throws HeadlessException {
+	public SearchEmailGUI(String to, String subj,String mail, String pass) throws HeadlessException {
 		super();
 		this.to = to;
 		this.subj = subj;
+		this.mail=mail;
+		this.pass=pass;
 	}
 
 
@@ -117,17 +123,13 @@ public class SearchEmailGUI extends JFrame {
 		sp.setBounds(10, 100, 597, 303);
 		contentPane.add(sp);
 		
-		JButton btnClose = new JButton("Close");
-		btnClose.setBounds(325, 414, 242, 23);
-		contentPane.add(btnClose);
-		
 		JButton answerButton = new JButton("Answer");
 		answerButton.setBounds(45, 414, 221, 23);
 		answerButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RespondEmailGUI gui=new RespondEmailGUI(to, subj);
+				RespondEmailGUI gui=new RespondEmailGUI(to, subj, mail, pass);
 				gui.janelaVisivel();
 			}
 		});

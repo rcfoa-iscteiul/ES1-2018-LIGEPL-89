@@ -28,6 +28,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -69,11 +70,14 @@ public class SearchInformationGUI extends JFrame {
 	
 	/** The model. */
 	private DefaultListModel<Info> model = new DefaultListModel<>();
+	
+	private ArrayList<String> tokens=new ArrayList<>();
 
 	/**
 	 * Instantiates a new search information GUI.
 	 */
-	public SearchInformationGUI() {
+	public SearchInformationGUI(ArrayList<String> tokens) {
+		this.tokens=tokens;
 		System.out.println(InfoXPath.getInstance().getTokens());
 		setBounds(100, 100, 852, 624);
 		contentPane = new JPanel();
@@ -133,7 +137,7 @@ public class SearchInformationGUI extends JFrame {
 				model.clear();
 
 				if (twitterButton.isSelected()) {
-					t = new TwitterES(textField.getText(), comboBox.getSelectedItem().toString());
+					t = new TwitterES(textField.getText(), comboBox.getSelectedItem().toString(),tokens.get(2),tokens.get(3),tokens.get(4),tokens.get(5));
 
 					for (Info s : t.getTweets()) {
 						model.addElement(s);
@@ -141,7 +145,7 @@ public class SearchInformationGUI extends JFrame {
 				}
 
 				else if (facebookButton.isSelected()) {
-					f = new Facebook(textField.getText(), comboBox.getSelectedItem().toString());
+					f = new Facebook(textField.getText(), comboBox.getSelectedItem().toString(),tokens.get(6));
 
 					for (Info s : f.getPosts()) {
 						model.addElement(s);
@@ -150,7 +154,7 @@ public class SearchInformationGUI extends JFrame {
 				}
 
 				else if (emailButton.isSelected()) {
-					m = new Mail(comboBox.getSelectedItem().toString(), textField.getText());
+					m = new Mail(comboBox.getSelectedItem().toString(), textField.getText(),tokens.get(0),tokens.get(1));
 					m.check();
 
 					for (Info mails : m.getMails()) {
@@ -205,7 +209,8 @@ public class SearchInformationGUI extends JFrame {
 				System.out.println(clicked);
 				if (clicked != null) {
 					if (clicked.getRedeSocial().equals("twitter")) {
-						SearchTwitterGUI tgui = new SearchTwitterGUI();
+						SearchTwitterGUI tgui = new SearchTwitterGUI(t);
+						tgui.setId(clicked.getId());
 						tgui.setFav(clicked.getLikes());
 						tgui.setRetweets(clicked.getShares());
 						tgui.setTweet("DATE: " + clicked.getDate() + "\n" + "FROM: " + clicked.getFrom() + "\n" + "\n"
@@ -214,9 +219,10 @@ public class SearchInformationGUI extends JFrame {
 					}
 				}
 				if (clicked.getRedeSocial().equals("email")) {
-					SearchEmailGUI tgui = new SearchEmailGUI(clicked.getFrom(),clicked.getContent());
-					tgui.setContent("DATE: " + clicked.getDate() + "\n" + "FROM: " + clicked.getFrom() + "\n" + "\n"
-							+ "Mail: " +"POR FAZER");
+					String emailFormatado=formatarEmail(clicked.getFrom());
+					SearchEmailGUI tgui = new SearchEmailGUI(emailFormatado,clicked.getContent(), tokens.get(0), tokens.get(1));
+					tgui.setContent("DATE: " + clicked.getDate() + "\n" + "FROM: " + emailFormatado + "\n" + "\n" +"SUBJECT: "+clicked.getSubject()+"\n"
+							+ "Mail: " +clicked.getContent());
 					tgui.constroiJanela();
 
 				}
@@ -233,6 +239,15 @@ public class SearchInformationGUI extends JFrame {
 			}
 		});
 
+	}
+	
+	public String formatarEmail(String s) {
+		String[] aux=s.split("<");
+		String primeiraParte=aux[1];
+		aux=primeiraParte.split(">");
+		String parteFinal=aux[0];
+		
+		return parteFinal;
 	}
 	
 	

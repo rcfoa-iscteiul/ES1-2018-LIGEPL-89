@@ -18,13 +18,14 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class SendTwitterGUI extends JFrame {
 
 	private JPanel contentPane;
 
 	
-	public SendTwitterGUI() {
+	public SendTwitterGUI(ArrayList<String> tokens) {
 		setBounds(100, 100, 602, 303);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,7 +49,7 @@ public class SendTwitterGUI extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SendTweet st=new SendTweet();
+				SendTweet st=new SendTweet(tokens.get(2),tokens.get(3),tokens.get(4),tokens.get(5));
 				st.enviaTweet(textPane.getText());
 			}
 		} );

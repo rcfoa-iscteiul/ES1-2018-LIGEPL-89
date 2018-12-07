@@ -71,7 +71,7 @@ public class WelcomeGUI extends JFrame {
 		JButton btnNewButton = new JButton("Search Information");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				SearchInformationGUI gui = new SearchInformationGUI();
+				SearchInformationGUI gui = new SearchInformationGUI(logingui.getLogin());
 				gui.janelaVisivel();
 			}
 		});
@@ -82,7 +82,7 @@ public class WelcomeGUI extends JFrame {
 		JButton btnNewButton_1 = new JButton("Send Information");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SendInformationGUI gui = new SendInformationGUI();
+				SendInformationGUI gui = new SendInformationGUI(logingui.getLogin());
 				gui.janelaVisivel();
 			}
 		});

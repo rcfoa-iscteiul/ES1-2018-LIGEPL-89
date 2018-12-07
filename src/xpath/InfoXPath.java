@@ -35,6 +35,7 @@ public class InfoXPath {
 				if(user.equals(xp.compile("./user").evaluate(nl.item(i)).toString())) {
 					if(pass.equals(xp.compile("./password").evaluate(nl.item(i)).toString())) {
 						tokens.add(xp.compile("./email").evaluate(nl.item(i)).toString());
+						tokens.add(xp.compile("./emailpassword").evaluate(nl.item(i)).toString());
 						tokens.add(xp.compile("./consumerkey").evaluate(nl.item(i)).toString());
 						tokens.add(xp.compile("./consumersecret").evaluate(nl.item(i)).toString());
 						tokens.add(xp.compile("./accesstoken").evaluate(nl.item(i)).toString());

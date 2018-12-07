@@ -1,25 +1,31 @@
 package Interface;
 
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import Twitter.TwitterES;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class SearchTwitterGUI.
  */
 public class SearchTwitterGUI extends JFrame {
+	private TwitterES t;
+	
+	
+	public SearchTwitterGUI(TwitterES t) {
+		this.t=t;
+	}
 
 	/** The content pane. */
 	private JPanel contentPane;
@@ -33,6 +39,19 @@ public class SearchTwitterGUI extends JFrame {
 	/** The tweet. */
 	private String tweet;
 	
+	private long id;
+	
+	
+	
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	/**
 	 * Constroi janela.
 	 */
@@ -69,6 +88,13 @@ public class SearchTwitterGUI extends JFrame {
 		
 		JButton btnRetweet = new JButton("Retweet");
 		btnRetweet.setBounds(139, 299, 89, 23);
+		btnRetweet.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				t.retweet(id);
+			}
+		});
 		contentPane.add(btnRetweet);
 		
 		JButton btnFavorite = new JButton("Favorite");
