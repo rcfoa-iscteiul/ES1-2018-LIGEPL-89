@@ -28,6 +28,10 @@ public class Info {
 	/** The rede social. */
 	private String redeSocial;
 
+	private long id;
+
+	private String subject;
+
 	/**
 	 * Instantiates a new info.
 	 *
@@ -39,7 +43,8 @@ public class Info {
 	 * @param comments   the comments
 	 * @param redeSocial the rede social
 	 */
-	public Info(Date date, String from, String content, int likes, int shares, int comments, String redeSocial) {
+	public Info(Date date, String from, String subject, String content, int likes, int shares, int comments, long id,
+			String redeSocial) {
 		this.date = date;
 		this.from = from;
 		this.content = content;
@@ -47,6 +52,24 @@ public class Info {
 		this.shares = shares;
 		this.comments = comments;
 		this.redeSocial = redeSocial;
+		this.id = id;
+		this.subject = subject;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	/**
