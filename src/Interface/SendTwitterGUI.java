@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -19,14 +22,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SendTwitterGUI.
+ */
 public class SendTwitterGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
 
+	/**
+	 * Instantiates a new send twitter GUI.
+	 *
+	 * @param tokens the tokens
+	 */
 	public SendTwitterGUI(ArrayList<String> tokens) {
 		setBounds(100, 100, 602, 303);
 		contentPane = new JPanel();
@@ -69,6 +87,9 @@ public class SendTwitterGUI extends JFrame {
 		contentPane.add(label);
 	}
 
+	/**
+	 * Visible window
+	 */
 	public void janelaVisivel() {
 		setVisible(true);
 	}

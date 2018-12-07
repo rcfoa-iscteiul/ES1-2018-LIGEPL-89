@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import javax.swing.JFrame;
@@ -14,12 +17,20 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class SearchTwitterGUI.
  */
 public class SearchTwitterGUI extends JFrame {
+	
+	/** The t. */
 	private TwitterES t;
 
+	/**
+	 * Instantiates a new search twitter GUI.
+	 *
+	 * @param t the t
+	 */
 	public SearchTwitterGUI(TwitterES t) {
 		this.t = t;
 	}
@@ -36,18 +47,29 @@ public class SearchTwitterGUI extends JFrame {
 	/** The tweet. */
 	private String tweet;
 
+	/** The id. */
 	private long id;
 
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
 	public long getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the id.
+	 *
+	 * @param id the new id
+	 */
 	public void setId(long id) {
 		this.id = id;
 	}
 
 	/**
-	 * Constroi janela.
+	 * Builds window
 	 */
 	public void constroiJanela() {
 		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

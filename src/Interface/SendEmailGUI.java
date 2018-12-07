@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -28,12 +31,19 @@ public class SendEmailGUI extends JFrame {
 	/** The content pane. */
 	private JPanel contentPane;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
 
 	/**
 	 * Instantiates a new send email GUI.
+	 *
+	 * @param tokens the tokens
 	 */
 	public SendEmailGUI(ArrayList<String> tokens) {
 
@@ -97,7 +107,7 @@ public class SendEmailGUI extends JFrame {
 	}
 
 	/**
-	 * Janela visivel.
+	 * Visible window
 	 */
 	public void janelaVisivel() {
 		setVisible(true);

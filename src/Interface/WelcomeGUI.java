@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import javax.swing.JFrame;
@@ -20,6 +23,7 @@ import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class WelcomeGUI.
  */

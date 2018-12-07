@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -44,6 +47,11 @@ public class SearchInformationGUI extends JFrame {
 	/** The content pane. */
 	private JPanel contentPane;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
@@ -75,10 +83,13 @@ public class SearchInformationGUI extends JFrame {
 	/** The model. */
 	private DefaultListModel<Info> model = new DefaultListModel<>();
 
+	/** The tokens. */
 	private ArrayList<String> tokens = new ArrayList<>();
 
 	/**
 	 * Instantiates a new search information GUI.
+	 *
+	 * @param tokens the tokens
 	 */
 	public SearchInformationGUI(ArrayList<String> tokens) {
 		this.tokens = tokens;
@@ -249,6 +260,12 @@ public class SearchInformationGUI extends JFrame {
 
 	}
 
+	/**
+	 * Edit email.
+	 *
+	 * @param s the s
+	 * @return the string
+	 */
 	public String formatarEmail(String s) {
 		String[] aux = s.split("<");
 		String primeiraParte = aux[1];
@@ -259,7 +276,7 @@ public class SearchInformationGUI extends JFrame {
 	}
 
 	/**
-	 * Janela visivel.
+	 * Visible window
 	 */
 	public void janelaVisivel() {
 		setVisible(true);

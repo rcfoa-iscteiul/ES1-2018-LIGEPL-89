@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package xpath;
 
 import java.io.FileOutputStream;
@@ -18,23 +21,56 @@ import jdk.nashorn.internal.ir.CatchNode;
 
 import javax.xml.xpath.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class InfoXPath.
+ */
 public class InfoXPath {
+	
+	/** The Constant INSTANCE. */
 	private static final InfoXPath INSTANCE = new InfoXPath();
+	
+	/** The tokens. */
 	private ArrayList<String> tokens = new ArrayList<String>();
+	
+	/** The off face. */
 	private ArrayList<String> offFace = new ArrayList<>();
+	
+	/** The off twitter. */
 	private ArrayList<String> offTwitter = new ArrayList<>();
+	
+	/** The off email. */
 	private ArrayList<String> offEmail = new ArrayList<>();
+	
+	/** The d. */
 	private Document d;
+	
+	/** The xp. */
 	private XPath xp;
 
+	/**
+	 * Instantiates a new info X path.
+	 */
 	private InfoXPath() {
 
 	}
 
+	/**
+	 * Gets the single instance of InfoXPath.
+	 *
+	 * @return single instance of InfoXPath
+	 */
 	public static InfoXPath getInstance() {
 		return INSTANCE;
 	}
 
+	/**
+	 * add the information on a xml file
+	 *
+	 * @param user the user
+	 * @param pass the pass
+	 * @return the array list
+	 */
 	public ArrayList<String> display(String user, String pass) {
 		ArrayList<String> tokens = new ArrayList<>();
 		try {
@@ -67,6 +103,13 @@ public class InfoXPath {
 		return tokens;
 	}
 
+	/**
+	 * Sets the offline.
+	 *
+	 * @param face the face
+	 * @param twitter the twitter
+	 * @param email the email
+	 */
 	public void setOffline(String face, String twitter, String email) {
 		Element newElement1 = d.createElement("Offline");
 		newElement1.setAttribute("offlineface", face);
@@ -74,6 +117,12 @@ public class InfoXPath {
 		newElement1.setAttribute("offlinemail", email);
 	}
 
+	/**
+	 * Gets the offline.
+	 *
+	 * @return the offline
+	 * @throws XPathExpressionException the x path expression exception
+	 */
 	public void getOffline() throws XPathExpressionException {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -101,18 +150,38 @@ public class InfoXPath {
 
 	}
 
+	/**
+	 * Gets the off face.
+	 *
+	 * @return the off face
+	 */
 	public ArrayList<String> getOffFace() {
 		return offFace;
 	}
 
+	/**
+	 * Gets the off twitter.
+	 *
+	 * @return the off twitter
+	 */
 	public ArrayList<String> getOffTwitter() {
 		return offTwitter;
 	}
 
+	/**
+	 * Gets the off email.
+	 *
+	 * @return the off email
+	 */
 	public ArrayList<String> getOffEmail() {
 		return offEmail;
 	}
 
+	/**
+	 * Gets the tokens.
+	 *
+	 * @return the tokens
+	 */
 	public ArrayList<String> getTokens() {
 		return tokens;
 	}

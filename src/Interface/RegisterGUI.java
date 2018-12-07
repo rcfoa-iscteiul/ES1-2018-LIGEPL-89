@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -21,30 +24,69 @@ import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RegisterGUI.
+ */
 public class RegisterGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The txt email. */
 	private JTextField txtEmail;
+	
+	/** The txt username. */
 	private JTextField txtUsername;
+	
+	/** The txt password. */
 	private JPasswordField txtPassword;
+	
+	/** The txt repeat password. */
 	private JPasswordField txtRepeatPassword;
+	
+	/** The registos. */
 	private HashMap<String, String> registos = new HashMap<String, String>();
+	
+	/** The text field. */
 	private JTextField textField;
+	
+	/** The text field 1. */
 	private JTextField textField_1;
+	
+	/** The text field 2. */
 	private JTextField textField_2;
+	
+	/** The text field 3. */
 	private JTextField textField_3;
+	
+	/** The text field 4. */
 	private JTextField textField_4;
+	
+	/** The text field 5. */
 	private JTextField textField_5;
+	
+	/** The text field 6. */
 	private JTextField textField_6;
+	
+	/** The txt email password. */
 	private JPasswordField txtEmailPassword;
 	
 
 	
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel(){
 		return contentPane;
 	}
+	
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		
@@ -54,6 +96,9 @@ public class RegisterGUI extends JFrame {
 	}
 
 
+/**
+ * Run.
+ */
 public static void run() {
 	try {
 		RegisterGUI frame = new RegisterGUI();
@@ -259,6 +304,11 @@ public static void run() {
 		contentPane.add(txtEmailPassword);
 	}
 
+	/**
+	 * Gets the registos.
+	 *
+	 * @return the registos
+	 */
 	public HashMap<String, String> getRegistos() {
 		return registos;
 	}

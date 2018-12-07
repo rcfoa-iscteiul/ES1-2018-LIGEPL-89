@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -28,6 +31,11 @@ public class SendInformationGUI extends JFrame {
 	/** The content pane. */
 	private JPanel contentPane;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
@@ -35,10 +43,13 @@ public class SendInformationGUI extends JFrame {
 	/** The welcome. */
 	private WelcomeGUI welcome;
 
+	/** The tokens. */
 	private ArrayList<String> tokens;
 
 	/**
 	 * Instantiates a new send information GUI.
+	 *
+	 * @param tokens the tokens
 	 */
 	public SendInformationGUI(ArrayList<String> tokens) {
 		this.tokens = tokens;
@@ -122,7 +133,7 @@ public class SendInformationGUI extends JFrame {
 	}
 
 	/**
-	 * Janela visivel.
+	 * Visible window
 	 */
 	public void janelaVisivel() {
 		setVisible(true);

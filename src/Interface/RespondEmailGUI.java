@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import javax.swing.JFrame;
@@ -15,6 +18,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class RespondEmailGUI.
  */
@@ -29,6 +33,11 @@ public class RespondEmailGUI extends JFrame {
 	/** The subj. */
 	private String subj;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
@@ -38,6 +47,8 @@ public class RespondEmailGUI extends JFrame {
 	 *
 	 * @param to   the to
 	 * @param subj the subj
+	 * @param mail the mail
+	 * @param pass the pass
 	 */
 	public RespondEmailGUI(String to, String subj, String mail, String pass) {
 		this.subj = subj;

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Email;
 
 import java.io.IOException;
@@ -16,15 +19,41 @@ import javax.mail.internet.MimeMultipart;
 
 import Interface.Info;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Mail.
+ */
 public class Mail {
+	
+	/** The combo. */
 	private String combo;
+	
+	/** The mails. */
 	private ArrayList<Info> mails = new ArrayList<Info>();
+	
+	/** The procura. */
 	private String procura;
+	
+	/** The today. */
 	private Date today = new Date();
+	
+	/** The today 2. */
 	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
+	
+	/** The mail. */
 	private String mail;
+	
+	/** The pass. */
 	private String pass;
 
+	/**
+	 * Instantiates a new mail.
+	 *
+	 * @param combo the combo
+	 * @param procura the procura
+	 * @param mail the mail
+	 * @param pass the pass
+	 */
 	public Mail(String combo, String procura, String mail, String pass) {
 		this.combo = combo;
 		this.procura = procura;
@@ -33,6 +62,9 @@ public class Mail {
 		today2.setHours(today.getHours() - 6);
 	}
 
+	/**
+	 *function that receives and shows emails based on a filter
+	 */
 	public void check() {
 		try {
 			String storeType = "pop3";
@@ -112,6 +144,14 @@ public class Mail {
 		}
 	}
 
+	/**
+	 * Gets the text from mime multipart.
+	 *
+	 * @param mimeMultipart the mime multipart
+	 * @return the text from mime multipart
+	 * @throws MessagingException the messaging exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws MessagingException, IOException {
 		String conteudo = null;
 		for (int i = 0; i < mimeMultipart.getCount(); i++) {
@@ -133,6 +173,11 @@ public class Mail {
 		return conteudo;
 	}
 
+	/**
+	 * Gets the mails.
+	 *
+	 * @return the mails
+	 */
 	public ArrayList<Info> getMails() {
 		return mails;
 	}

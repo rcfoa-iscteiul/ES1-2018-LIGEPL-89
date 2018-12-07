@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Facebook;
 
 import static java.lang.Math.toIntExact;
@@ -18,27 +21,36 @@ import com.restfb.types.Post;
 import com.restfb.types.User;
 import Interface.Info;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author ES2018
- * 
- * 
+ * The Class Facebook.
  *
+ * @author ES2018
  */
 
 public class Facebook {
+	
+	/** The procura. */
 	String procura;
+	
+	/** The posts. */
 	ArrayList<Info> posts = new ArrayList<Info>();
+	
+	/** The tempos. */
 	List<Date> tempos = new ArrayList<Date>();
+	
+	/** The today. */
 	Date today = new Date();
+	
+	/** The today 2. */
 	Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
 
 	/**
-	 * Construtor que estabelece as ligações com os access token key e introduz
-	 * todos os posts numa lista que será posteriormente exibida
-	 * 
-	 * @param procura no qual podemos selecionar um filtro para especificar o nosso
-	 *                output
-	 * 
+	 * Constructor that establish a conection with the access keys and show a list with the facebook posts
+	 *
+	 * @param procura 
+	 * @param combo the combo
+	 * @param token the token
 	 */
 
 	public Facebook(String procura, String combo, String token) {
@@ -94,9 +106,8 @@ public class Facebook {
 
 	/**
 	 * Função que retorna o access token usado para estabelecer a ligação e desta
-	 * forma permitir cria testes JUnit
-	 * 
-	 * 
+	 * forma permitir cria testes JUnit.
+	 *
 	 * @return o acces token.
 	 */
 
@@ -111,6 +122,11 @@ public class Facebook {
 		return posts;
 	}
 
+	/**
+	 * Sets the posts.
+	 *
+	 * @param posts the new posts
+	 */
 	public void setPosts(ArrayList<Info> posts) {
 		this.posts = posts;
 	}

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -108,7 +111,7 @@ public class SearchFacebookGUI extends JFrame {
 	}
 
 	/**
-	 * Constroi janela.
+	 * Builds window
 	 */
 	public void constroiJanela() {
 		setBounds(100, 100, 633, 397);

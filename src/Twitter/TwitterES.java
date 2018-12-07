@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Twitter;
 
 import twitter4j.Status;
@@ -14,26 +17,51 @@ import javax.swing.JOptionPane;
 
 import Interface.Info;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TwitterES.
+ */
 public class TwitterES {
+	
+	/** The procura. */
 	private String procura;
+	
+	/** The statuses. */
 	private List<Status> statuses;
+	
+	/** The tweets. */
 	private ArrayList<Info> tweets = new ArrayList<Info>();
+	
+	/** The today. */
 	private Date today = new Date();
+	
+	/** The today 2. */
 	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
+	
+	/** The twitter. */
 	private Twitter twitter;
+	
+	/** The combo. */
 	private String combo;
 
+	/**
+	 * Gets the procura.
+	 *
+	 * @return the procura
+	 */
 	public String getProcura() {
 		return procura;
 	}
 
 	/**
-	 * Construtor que estabelece as ligações com os access token key e introduz
-	 * todos os tweets numa lista que será posteriormente exibida
-	 * 
-	 * @param procura no qual podemos selcionar um filtro para especificar o nosso
-	 *                output
-	 * 
+	 * Constructor that establish a conection with the access keys and show a list with the facebook posts
+	 *
+	 * @param procura 
+	 * @param combo the combo
+	 * @param consumerKey the consumer key
+	 * @param consumerSecret the consumer secret
+	 * @param accessToken the access token
+	 * @param tokenSecret the token secret
 	 */
 
 	public TwitterES(String procura, String combo, String consumerKey, String consumerSecret, String accessToken,
@@ -55,6 +83,9 @@ public class TwitterES {
 		}
 	}
 
+	/**
+	 * Show the tweets  base on a filter
+	 */
 	public void tweet() {
 
 		for (Status status : statuses) {
@@ -98,6 +129,11 @@ public class TwitterES {
 		}
 	}
 
+	/**
+	 * Allows to share a tweet
+	 *
+	 * @param id the id
+	 */
 	public void retweet(long id) {
 		try {
 			twitter.retweetStatus(id);
@@ -110,15 +146,19 @@ public class TwitterES {
 	}
 
 	/**
-	 * Função que retorna a lista com todos os tweets conforme o filtro selecionado
-	 * 
-	 * 
-	 * @return retorna a ArrayList com todos os tweets.
+	 * Function that returns all the tweets base on a filter
+	 *
+	 * @return return a arrayList with the tweets
 	 */
 	public ArrayList<Info> getTweets() {
 		return tweets;
 	}
 
+	/**
+	 * Sets the tweets.
+	 *
+	 * @param tweets the new tweets
+	 */
 	public void setTweets(ArrayList<Info> tweets) {
 		this.tweets = tweets;
 	}

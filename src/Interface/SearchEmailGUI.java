@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -37,10 +40,17 @@ public class SearchEmailGUI extends JFrame {
 	/** The subj. */
 	private String subj;
 
+	/** The mail. */
 	private String mail;
 
+	/** The pass. */
 	private String pass;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
@@ -50,6 +60,8 @@ public class SearchEmailGUI extends JFrame {
 	 *
 	 * @param to   the to
 	 * @param subj the subj
+	 * @param mail the mail
+	 * @param pass the pass
 	 * @throws HeadlessException the headless exception
 	 */
 	public SearchEmailGUI(String to, String subj, String mail, String pass) throws HeadlessException {
@@ -87,7 +99,7 @@ public class SearchEmailGUI extends JFrame {
 	}
 
 	/**
-	 * Constroi janela.
+	 * Builds window
 	 */
 	public void constroiJanela() {
 		setBounds(100, 100, 633, 501);

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.awt.BorderLayout;
@@ -28,12 +31,19 @@ public class SendFacebookGUI extends JFrame {
 	/** The content pane. */
 	private JPanel contentPane;
 
+	/**
+	 * Gets the panel.
+	 *
+	 * @return the panel
+	 */
 	public JPanel getPanel() {
 		return contentPane;
 	}
 
 	/**
 	 * Instantiates a new send facebook GUI.
+	 *
+	 * @param tokens the tokens
 	 */
 	public SendFacebookGUI(ArrayList<String> tokens) {
 		setBounds(100, 100, 602, 405);
@@ -78,7 +88,7 @@ public class SendFacebookGUI extends JFrame {
 	}
 
 	/**
-	 * Janela visivel.
+	 * Visible window
 	 */
 	public void janelaVisivel() {
 		setVisible(true);

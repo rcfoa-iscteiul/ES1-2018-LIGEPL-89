@@ -1,7 +1,11 @@
+/*
+ * 
+ */
 package Interface;
 
 import java.util.Date;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Info.
  */
@@ -28,8 +32,10 @@ public class Info {
 	/** The rede social. */
 	private String redeSocial;
 
+	/** The id. */
 	private long id;
 
+	/** The subject. */
 	private String subject;
 
 	/**
@@ -37,10 +43,12 @@ public class Info {
 	 *
 	 * @param date       the date
 	 * @param from       the from
+	 * @param subject the subject
 	 * @param content    the content
 	 * @param likes      the likes
 	 * @param shares     the shares
 	 * @param comments   the comments
+	 * @param id the id
 	 * @param redeSocial the rede social
 	 */
 	public Info(Date date, String from, String subject, String content, int likes, int shares, int comments, long id,
@@ -56,18 +64,38 @@ public class Info {
 		this.subject = subject;
 	}
 
+	/**
+	 * Gets the subject.
+	 *
+	 * @return the subject
+	 */
 	public String getSubject() {
 		return subject;
 	}
 
+	/**
+	 * Sets the subject.
+	 *
+	 * @param subject the new subject
+	 */
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
 
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
 	public long getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the id.
+	 *
+	 * @param id the new id
+	 */
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -199,9 +227,9 @@ public class Info {
 	}
 
 	/**
-	 * 
-	 * To string for Dates from Facebook
-	 * 
+	 * To string for Dates from Facebook.
+	 *
+	 * @return the string
 	 */
 	@Override
 	public String toString() {

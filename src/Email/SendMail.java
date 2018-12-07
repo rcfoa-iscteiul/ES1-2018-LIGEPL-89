@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package Email;
 
 import java.io.File;
@@ -18,15 +21,35 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SendMail.
+ */
 public class SendMail {
+	
+	/** The mail. */
 	private String mail;
+	
+	/** The pass. */
 	private String pass;
 
+	/**
+	 * Instantiates a new send mail.
+	 *
+	 * @param mail the mail
+	 * @param pass the pass
+	 */
 	public SendMail(String mail, String pass) {
 		this.mail = mail;
 		this.pass = pass;
 	}
 
+	/**
+	 * function that sends the emails to a certain destination
+	 * @param mailDestino the mail destino
+	 * @param sub the sub
+	 * @param message the message
+	 */
 	public void send(String mailDestino, String sub, String message) {
 		String senderEmail = mail;
 		String password = pass;
