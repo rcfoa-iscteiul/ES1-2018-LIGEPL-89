@@ -71,9 +71,7 @@ public class TwitterES {
 		}
 
 			}
-			// Status status = twitter.updateStatus("latestStatus");
-			// System.out.println("Successfully updated the status to [" + status.getText()
-			// + "].");
+			
 
 		} catch (TwitterException e) {
 			e.printStackTrace();

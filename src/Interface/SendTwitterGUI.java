@@ -7,12 +7,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Twitter.SendTweet;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SendTwitterGUI extends JFrame {
 
@@ -39,6 +44,14 @@ public class SendTwitterGUI extends JFrame {
 		JButton btnSend = new JButton("Send");
 		btnSend.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnSend.setBounds(187, 230, 230, 23);
+		btnSend.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SendTweet st=new SendTweet();
+				st.enviaTweet(textPane.getText());
+			}
+		} );
 		contentPane.add(btnSend);
 		
 		JLabel lblNewLabel_1 = new JLabel("Please write the tweet you want to publish on your Twitter:");
