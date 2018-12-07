@@ -27,7 +27,6 @@ public class WelcomeGUI extends JFrame {
 
 	private JPanel contentPane;
 	private LoginGUI logingui;
-	private SearchInformationGUI search;
 	private SendInformationGUI send;
 	private String user;
 	private ArrayList<String> tokens;
@@ -65,8 +64,8 @@ public class WelcomeGUI extends JFrame {
 		JButton btnNewButton = new JButton("Search Information");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				search.run();
-				
+				SearchInformationGUI gui=new SearchInformationGUI();
+				gui.janelaVisivel();
 			}
 		});
 		btnNewButton.setFont(new Font("Arial", Font.BOLD, 12));
@@ -76,7 +75,8 @@ public class WelcomeGUI extends JFrame {
 		JButton btnNewButton_1 = new JButton("Send Information");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				send.run();
+				SendInformationGUI gui=new SendInformationGUI();
+				gui.janelaVisivel();
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 12));

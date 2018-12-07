@@ -13,6 +13,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -21,25 +22,9 @@ public class SendInformationGUI extends JFrame {
 
 	private JPanel contentPane;
 	private WelcomeGUI welcome;
- 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		run();
-	}
-	public static void run() {
-		try {
-			SendInformationGUI frame = new SendInformationGUI();
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
-	/**
-	 * Create the frame.
-	 */
+ 
+	
 	public SendInformationGUI() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 657, 455);
@@ -75,18 +60,41 @@ public class SendInformationGUI extends JFrame {
 		twitterButton.setBounds(318, 223, 27, 23);
 		contentPane.add(twitterButton);
 		
-		JRadioButton radioButton = new JRadioButton("");
-		radioButton.setBounds(136, 223, 27, 23);
-		contentPane.add(radioButton);
+		JRadioButton facebookButton = new JRadioButton("");
+		facebookButton.setBounds(136, 223, 27, 23);
+		contentPane.add(facebookButton);
 		
-		JRadioButton radioButton_1 = new JRadioButton("");
-		radioButton_1.setBounds(495, 223, 21, 23);
-		contentPane.add(radioButton_1);
+		JRadioButton emailButton = new JRadioButton("");
+		emailButton.setBounds(495, 223, 21, 23);
+		contentPane.add(emailButton);
 		
-		JButton btnNewButton = new JButton("Next");
-		btnNewButton.setFont(new Font("Arial", Font.BOLD, 16));
-		btnNewButton.setBounds(380, 361, 184, 29);
-		contentPane.add(btnNewButton);
+		JButton nextButton = new JButton("Next");
+		nextButton.setFont(new Font("Arial", Font.BOLD, 16));
+		nextButton.setBounds(233, 360, 184, 29);
+		
+		nextButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(twitterButton.isSelected()||facebookButton.isSelected()||emailButton.isSelected()) {
+				if(twitterButton.isSelected()) {
+					SendTwitterGUI gui=new SendTwitterGUI();
+					gui.janelaVisivel();
+				}if(facebookButton.isSelected()) {
+					SendFacebookGUI gui=new SendFacebookGUI();
+					gui.janelaVisivel();
+				}if(emailButton.isSelected()) {
+					SendEmailGUI gui=new SendEmailGUI();
+					gui.janelaVisivel();
+				}
+				}else {
+					JOptionPane.showMessageDialog(null, "Please select social etwork", "Bom Dia Academia", JOptionPane.ERROR_MESSAGE);
+
+				}
+			}
+		});
+		
+		contentPane.add(nextButton);
 		
 		JLabel lblChooseWhichApplication = new JLabel("Choose which Application you want to send information");
 		lblChooseWhichApplication.setFont(new Font("Arial Black", Font.PLAIN, 13));
@@ -94,16 +102,10 @@ public class SendInformationGUI extends JFrame {
 		lblChooseWhichApplication.setBounds(114, 165, 450, 29);
 		contentPane.add(lblChooseWhichApplication);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//welcome.run(); 
 			}
-		});
-		btnBack.setFont(new Font("Arial", Font.BOLD, 16));
-		btnBack.setBounds(76, 361, 184, 29);
-		contentPane.add(btnBack);
-		
-			}
+	
+	public void janelaVisivel() {
+		setVisible(true);
+	}
 
 }

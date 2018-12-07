@@ -19,12 +19,16 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SendEmailGUI extends JFrame {
+public class RespondEmailGUI extends JFrame {
 
 	private JPanel contentPane;
+	private String to;
+	private String subj;
 
 	
-	public SendEmailGUI() {
+	public RespondEmailGUI(String to, String subj) {
+		this.subj=subj;
+		this.to=to;
 		
 		setBounds(100, 100, 602, 573);
 		contentPane = new JPanel();
@@ -33,7 +37,7 @@ public class SendEmailGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(SendEmailGUI.class.getResource("/Image/bomdia2.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(RespondEmailGUI.class.getResource("/Image/bomdia2.jpg")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 566, 62);
 		contentPane.add(lblNewLabel);
@@ -41,10 +45,6 @@ public class SendEmailGUI extends JFrame {
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(33, 265, 521, 216);
 		contentPane.add(textPane);
-		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setBounds(98, 198, 315, 37);
-		contentPane.add(textPane_1);
 		
 		JLabel lblSubject = new JLabel("Subject:");
 		lblSubject.setFont(new Font("Arial", Font.BOLD, 14));
@@ -57,19 +57,23 @@ public class SendEmailGUI extends JFrame {
 		lblPleaseWriteThe.setBounds(33, 97, 521, 23);
 		contentPane.add(lblPleaseWriteThe);
 		
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setBounds(98, 150, 315, 37);
-		contentPane.add(textPane_2);
-		
 		JLabel lblTo = new JLabel("To:");
 		lblTo.setFont(new Font("Arial", Font.BOLD, 14));
 		lblTo.setBounds(61, 150, 62, 43);
 		contentPane.add(lblTo);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(SendEmailGUI.class.getResource("/Image/gmail.png")));
+		label.setIcon(new ImageIcon(RespondEmailGUI.class.getResource("/Image/gmail.png")));
 		label.setBounds(489, 11, 87, 62);
 		contentPane.add(label);
+		
+		JLabel lblto = new JLabel(to);
+		lblto.setBounds(133, 165, 421, 14);
+		contentPane.add(lblto);
+		
+		JLabel lblsub = new JLabel("RS:"+subj);
+		lblsub.setBounds(133, 213, 421, 14);
+		contentPane.add(lblsub);
 		
 
 		JButton btnSend = new JButton("Send");
@@ -80,10 +84,12 @@ public class SendEmailGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SendMail sm=new SendMail();
-				sm.send(textPane_2.getText(), textPane_1.getText(), textPane.getText());
+				sm.send(to,"RS: "+subj, textPane.getText());
 			}
 		});
 		contentPane.add(btnSend);
+		
+		
 	}
 	
 	public void janelaVisivel() {

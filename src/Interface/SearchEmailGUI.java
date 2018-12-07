@@ -3,11 +3,17 @@ package Interface;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
+import Email.SendMail;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
@@ -17,11 +23,24 @@ import javax.swing.JButton;
 public class SearchEmailGUI extends JFrame {
 
 	private JPanel contentPane;
-		private String content;
-		
-		
- 
+	private String content;
+	private String to;
+	private String subj;
 	
+	
+
+	
+	public SearchEmailGUI(String to, String subj) throws HeadlessException {
+		super();
+		this.to = to;
+		this.subj = subj;
+	}
+
+
+	public SearchEmailGUI() throws HeadlessException {
+	}
+
+
 	public String getContent() {
 			return content;
 		}
@@ -66,9 +85,18 @@ public class SearchEmailGUI extends JFrame {
 		btnClose.setBounds(325, 414, 242, 23);
 		contentPane.add(btnClose);
 		
-		JButton btnNewButton = new JButton("Answer");
-		btnNewButton.setBounds(45, 414, 221, 23);
-		contentPane.add(btnNewButton);
+		JButton answerButton = new JButton("Answer");
+		answerButton.setBounds(45, 414, 221, 23);
+		answerButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				RespondEmailGUI gui=new RespondEmailGUI(to, subj);
+				gui.janelaVisivel();
+			}
+		});
+		
+		contentPane.add(answerButton);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(SearchEmailGUI.class.getResource("/Image/gmail.png")));

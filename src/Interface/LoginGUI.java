@@ -27,18 +27,21 @@ public class LoginGUI extends JFrame {
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
 	private JLabel label;
-	private InfoXPath xpath =new InfoXPath();
-	ArrayList<String> login;
-	WelcomeGUI w=new WelcomeGUI(this);
+	//private InfoXPath xpath =new InfoXPath();
+	private ArrayList<String> login=InfoXPath.getInstance().getTokens();
+	private WelcomeGUI w=new WelcomeGUI(this);
+	
 
 
 	/**
-	 * Launch the application.
+	 *  
 	 */
 	public static void main(String[] args) {
 		LoginGUI login = new LoginGUI();
 		login.run();
 	}
+	
+	
 public  void run() {
 				try {
 					LoginGUI frame = new LoginGUI();
@@ -103,7 +106,7 @@ public  void run() {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String pass=new String(txtPassword.getPassword());
-				login=xpath.display(txtUsername.getText(), pass);
+				login=InfoXPath.getInstance().display(txtUsername.getText(), pass);
 				
 				if(login.isEmpty() || txtUsername.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login System", JOptionPane.ERROR_MESSAGE);
@@ -121,4 +124,9 @@ public  void run() {
 		btnNewButton.setBounds(85, 236, 89, 31);
 		contentPane.add(btnNewButton);
 	}
+	public ArrayList<String> getLogin() {
+		return login;
+	}
+	
+	
 }
