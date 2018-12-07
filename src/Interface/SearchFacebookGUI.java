@@ -14,46 +14,102 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Font;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SearchFacebookGUI.
+ */
 public class SearchFacebookGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The likes. */
 	private int likes;
+	
+	/** The shares. */
 	private int shares;
+	
+	/** The comments. */
 	private int comments;
+	
+	/** The post. */
 	private String post;
 
+	/**
+	 * Gets the post.
+	 *
+	 * @return the post
+	 */
 	public String getPost() {
 		return post;
 	}
 
+	/**
+	 * Sets the post.
+	 *
+	 * @param post the new post
+	 */
 	public void setPost(String post) {
 		this.post = post;
 	}
 
+	/**
+	 * Gets the likes.
+	 *
+	 * @return the likes
+	 */
 	public int getLikes() {
 		return likes;
 	}
 
+	/**
+	 * Sets the likes.
+	 *
+	 * @param likes the new likes
+	 */
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
 
+	/**
+	 * Gets the shares.
+	 *
+	 * @return the shares
+	 */
 	public int getShares() {
 		return shares;
 	}
 
+	/**
+	 * Sets the shares.
+	 *
+	 * @param shares the new shares
+	 */
 	public void setShares(int shares) {
 		this.shares = shares;
 	}
 
+	/**
+	 * Gets the comments.
+	 *
+	 * @return the comments
+	 */
 	public int getComments() {
 		return comments;
 	}
 
+	/**
+	 * Sets the comments.
+	 *
+	 * @param comments the new comments
+	 */
 	public void setComments(int comments) {
 		this.comments = comments;
 	}
 
+	/**
+	 * Constroi janela.
+	 */
 	public void constroiJanela() {
 		setBounds(100, 100, 633, 397);
 		contentPane = new JPanel();

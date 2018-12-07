@@ -14,11 +14,19 @@ import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.Font;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SendFacebookGUI.
+ */
 public class SendFacebookGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
 
 
+	/**
+	 * Instantiates a new send facebook GUI.
+	 */
 	public SendFacebookGUI() {
 		setBounds(100, 100, 602, 405);
 		contentPane = new JPanel();
@@ -53,6 +61,9 @@ public class SendFacebookGUI extends JFrame {
 		contentPane.add(btnSend);
 	}
 	
+	/**
+	 * Janela visivel.
+	 */
 	public void janelaVisivel() {
 		setVisible(true);
 	}

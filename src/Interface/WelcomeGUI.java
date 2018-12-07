@@ -23,15 +23,31 @@ import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
 
+/**
+ * The Class WelcomeGUI.
+ */
 public class WelcomeGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The logingui. */
 	private LoginGUI logingui;
+	
+	/** The send. */
 	private SendInformationGUI send;
+	
+	/** The user. */
 	private String user;
+	
+	/** The tokens. */
 	private ArrayList<String> tokens;
+	
 	/**
 	 * Launch the application.
+	 *
+	 * @param logingui the logingui
+	 * @throws HeadlessException the headless exception
 	 */
 
 	
@@ -117,14 +133,30 @@ public class WelcomeGUI extends JFrame {
 	
 	
 
+	/**
+	 * Gets the tokens.
+	 *
+	 * @return the tokens
+	 */
 	public ArrayList<String> getTokens() {
 		return tokens;
 	}
 
 
+	/**
+	 * Gets the user.
+	 *
+	 * @return the user
+	 */
 	public String getUser() {
 		return user;
 	}
+	
+	/**
+	 * Sets the user.
+	 *
+	 * @param user the new user
+	 */
 	public void setUser(String user) {
 		this.user = user;
 	}

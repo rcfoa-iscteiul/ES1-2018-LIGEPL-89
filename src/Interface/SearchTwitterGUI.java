@@ -15,13 +15,27 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Font;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SearchTwitterGUI.
+ */
 public class SearchTwitterGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The fav. */
 	private int fav;
+	
+	/** The retweets. */
 	private int retweets;
+	
+	/** The tweet. */
 	private String tweet;
 	
+	/**
+	 * Constroi janela.
+	 */
 	public void constroiJanela() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 633, 446);
@@ -79,26 +93,56 @@ public class SearchTwitterGUI extends JFrame {
 		setVisible(true);
 	}
 
+	/**
+	 * Gets the fav.
+	 *
+	 * @return the fav
+	 */
 	public int getFav() {
 		return fav;
 	}
 
+	/**
+	 * Sets the fav.
+	 *
+	 * @param fav the new fav
+	 */
 	public void setFav(int fav) {
 		this.fav = fav;
 	}
 
+	/**
+	 * Gets the retweets.
+	 *
+	 * @return the retweets
+	 */
 	public int getRetweets() {
 		return retweets;
 	}
 
+	/**
+	 * Sets the retweets.
+	 *
+	 * @param retweets the new retweets
+	 */
 	public void setRetweets(int retweets) {
 		this.retweets = retweets;
 	}
 
+	/**
+	 * Gets the tweet.
+	 *
+	 * @return the tweet
+	 */
 	public String getTweet() {
 		return tweet;
 	}
 
+	/**
+	 * Sets the tweet.
+	 *
+	 * @param tweet the new tweet
+	 */
 	public void setTweet(String tweet) {
 		this.tweet = tweet;
 	}

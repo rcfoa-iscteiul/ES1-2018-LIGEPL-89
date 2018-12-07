@@ -34,19 +34,45 @@ import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SearchInformationGUI.
+ */
 public class SearchInformationGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The text field. */
 	private JTextField textField;
+	
+	/** The f. */
 	private Facebook f;
+	
+	/** The t. */
 	private TwitterES t;
+	
+	/** The m. */
 	private Mail m;
+	
+	/** The twitter button. */
 	private JRadioButton twitterButton = new JRadioButton("");
+	
+	/** The facebook button. */
 	private JRadioButton facebookButton = new JRadioButton("");
+	
+	/** The email button. */
 	private JRadioButton emailButton = new JRadioButton("");
+	
+	/** The jlist. */
 	private JList<Info> jlist;
+	
+	/** The model. */
 	private DefaultListModel<Info> model = new DefaultListModel<>();
 
+	/**
+	 * Instantiates a new search information GUI.
+	 */
 	public SearchInformationGUI() {
 		System.out.println(InfoXPath.getInstance().getTokens());
 		setBounds(100, 100, 852, 624);
@@ -97,8 +123,8 @@ public class SearchInformationGUI extends JFrame {
 		contentPane.add(emailButton);
 
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "\u00DAltima hora", "\u00DAltimas 6 horas", "\u00DAltimas 24 horas" }));
-		comboBox.setBounds(574, 123, 100, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "\u00DAltima hora", "\u00DAltimas 6 horas", "\u00DAltimas 24 horas", "Todos" }));
+		comboBox.setBounds(574, 123, 104, 20);
 		contentPane.add(comboBox);
 
 		JButton btnNewButton = new JButton("Search\r\n");
@@ -210,6 +236,9 @@ public class SearchInformationGUI extends JFrame {
 	}
 	
 	
+	/**
+	 * Janela visivel.
+	 */
 	public void janelaVisivel() {
 		setVisible(true);
 	}

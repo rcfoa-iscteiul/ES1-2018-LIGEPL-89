@@ -18,13 +18,23 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SendInformationGUI.
+ */
 public class SendInformationGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The welcome. */
 	private WelcomeGUI welcome;
 
  
 	
+	/**
+	 * Instantiates a new send information GUI.
+	 */
 	public SendInformationGUI() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 657, 455);
@@ -104,6 +114,9 @@ public class SendInformationGUI extends JFrame {
 		
 			}
 	
+	/**
+	 * Janela visivel.
+	 */
 	public void janelaVisivel() {
 		setVisible(true);
 	}

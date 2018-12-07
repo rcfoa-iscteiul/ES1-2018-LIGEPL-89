@@ -21,20 +21,37 @@ import com.sun.glass.events.WindowEvent;
 
 import xpath.InfoXPath;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginGUI.
+ */
 public class LoginGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The txt username. */
 	private JTextField txtUsername;
+	
+	/** The txt password. */
 	private JPasswordField txtPassword;
+	
+	/** The label. */
 	private JLabel label;
+	
+	/** The login. */
 	//private InfoXPath xpath =new InfoXPath();
 	private ArrayList<String> login=InfoXPath.getInstance().getTokens();
+	
+	/** The w. */
 	private WelcomeGUI w=new WelcomeGUI(this);
 	
 
 
 	/**
-	 *  
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		LoginGUI login = new LoginGUI();
@@ -42,6 +59,9 @@ public class LoginGUI extends JFrame {
 	}
 	
 	
+/**
+ * Run.
+ */
 public  void run() {
 				try {
 					LoginGUI frame = new LoginGUI();
@@ -124,6 +144,12 @@ public  void run() {
 		btnNewButton.setBounds(85, 236, 89, 31);
 		contentPane.add(btnNewButton);
 	}
+	
+	/**
+	 * Gets the login list.
+	 *
+	 * @return the login
+	 */
 	public ArrayList<String> getLogin() {
 		return login;
 	}

@@ -19,11 +19,19 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SendEmailGUI.
+ */
 public class SendEmailGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
 
 	
+	/**
+	 * Instantiates a new send email GUI.
+	 */
 	public SendEmailGUI() {
 		
 		setBounds(100, 100, 602, 573);
@@ -86,6 +94,9 @@ public class SendEmailGUI extends JFrame {
 		contentPane.add(btnSend);
 	}
 	
+	/**
+	 * Janela visivel.
+	 */
 	public void janelaVisivel() {
 		setVisible(true);
 	}

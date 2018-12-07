@@ -19,13 +19,28 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RespondEmailGUI.
+ */
 public class RespondEmailGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The to. */
 	private String to;
+	
+	/** The subj. */
 	private String subj;
 
 	
+	/**
+	 * Instantiates a new respond email GUI.
+	 *
+	 * @param to the to
+	 * @param subj the subj
+	 */
 	public RespondEmailGUI(String to, String subj) {
 		this.subj=subj;
 		this.to=to;
@@ -92,6 +107,9 @@ public class RespondEmailGUI extends JFrame {
 		
 	}
 	
+	/**
+	 * Janela visivel.
+	 */
 	public void janelaVisivel() {
 		setVisible(true);
 	}

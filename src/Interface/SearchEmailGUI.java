@@ -20,16 +20,34 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SearchEmailGUI.
+ */
 public class SearchEmailGUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The content. */
 	private String content;
+	
+	/** The to. */
 	private String to;
+	
+	/** The subj. */
 	private String subj;
 	
 	
 
 	
+	/**
+	 * Instantiates a new search email GUI.
+	 *
+	 * @param to the to
+	 * @param subj the subj
+	 * @throws HeadlessException the headless exception
+	 */
 	public SearchEmailGUI(String to, String subj) throws HeadlessException {
 		super();
 		this.to = to;
@@ -37,10 +55,20 @@ public class SearchEmailGUI extends JFrame {
 	}
 
 
+	/**
+	 * Instantiates a new search email GUI.
+	 *
+	 * @throws HeadlessException the headless exception
+	 */
 	public SearchEmailGUI() throws HeadlessException {
 	}
 
 
+	/**
+	 * Gets the content.
+	 *
+	 * @return the content
+	 */
 	public String getContent() {
 			return content;
 		}
@@ -48,6 +76,11 @@ public class SearchEmailGUI extends JFrame {
 
 
 
+		/**
+		 * Sets the content.
+		 *
+		 * @param content the new content
+		 */
 		public void setContent(String content) {
 			this.content = content;
 		}
@@ -55,6 +88,9 @@ public class SearchEmailGUI extends JFrame {
 
 
 
+	/**
+	 * Constroi janela.
+	 */
 	public void constroiJanela() {
 		setBounds(100, 100, 633, 501);
 		contentPane = new JPanel();
