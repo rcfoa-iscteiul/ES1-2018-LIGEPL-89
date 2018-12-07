@@ -2,14 +2,22 @@ package xpath;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import javax.swing.JOptionPane;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import javax.xml.xpath.*;
 
 public class InfoXPath {
-	  ArrayList<String> tokens=new ArrayList<String>();
+	private static final InfoXPath INSTANCE = new InfoXPath();
+	private ArrayList<String> tokens=new ArrayList<String>();
+	
+	private InfoXPath() {
+		
+	}
+	
+	public static InfoXPath getInstance() {
+		return INSTANCE;
+	}
 	  
 
 	public  ArrayList<String> display(String user, String pass) {
