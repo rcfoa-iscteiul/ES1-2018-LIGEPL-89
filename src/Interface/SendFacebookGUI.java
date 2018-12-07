@@ -7,12 +7,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Facebook.SendPosts;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -58,6 +63,14 @@ public class SendFacebookGUI extends JFrame {
 		JButton btnSend = new JButton("Send");
 		btnSend.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnSend.setBounds(191, 318, 230, 23);
+		btnSend.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SendPosts s=new SendPosts(textPane.getText());
+				s.sendPost();
+			}
+		});
 		contentPane.add(btnSend);
 	}
 	
