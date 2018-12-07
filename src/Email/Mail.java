@@ -5,10 +5,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import javax.mail.BodyPart;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.NoSuchProviderException;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 
@@ -57,8 +60,17 @@ public class Mail {
 			System.out.println("messages.length---" + (messages.length - 1));
 
 			for (int i = messages.length - 1; i > 0; i--) {
-				message = messages[i];
+				Multipart mp = (Multipart) messages[i].getContent();
 
+				BodyPart bodyPart=mp.getBodyPart(i);
+				if (bodyPart.isMimeType("text/*")) {
+					String s=(String) bodyPart.getContent();
+					System.out.println(s);
+				}
+		         
+		      
+				
+				
 				if (message != null && message.getFrom()[0].toString().contains(procura)) {
 
 					if (combo.equals("Última hora")) {
@@ -104,5 +116,11 @@ public class Mail {
 	public ArrayList<Info> getMails() {
 		return mails;
 	}
+	
+	public static void main(String[] args) {
+		Mail m= new Mail("Últimas 24 horas","");
+		m.check();
+	}
+	
 
 }

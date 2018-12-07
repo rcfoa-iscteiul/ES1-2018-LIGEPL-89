@@ -2,7 +2,6 @@ package Facebook;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.restfb.Connection;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
