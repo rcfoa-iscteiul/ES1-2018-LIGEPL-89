@@ -55,6 +55,7 @@ public class Info {
 		this.id = id;
 		this.subject = subject;
 	}
+	
 
 	public String getSubject() {
 		return subject;
