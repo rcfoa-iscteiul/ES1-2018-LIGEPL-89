@@ -163,7 +163,7 @@ public class SearchInformationGUI extends JFrame {
 
 				else if (facebookButton.isSelected()) {
 					f = new Facebook(textField.getText(), comboBox.getSelectedItem().toString(), tokens.get(6));
-
+					f.unload();
 					for (Info s : f.getPosts()) {
 						model.addElement(s);
 					}
@@ -235,7 +235,7 @@ public class SearchInformationGUI extends JFrame {
 								+ "TWEET: " + clicked.getContent());
 						tgui.constroiJanela();
 					}
-				}
+				
 				if (clicked.getRedeSocial().equals("email")) {
 					String emailFormatado = formatarEmail(clicked.getFrom());
 					SearchEmailGUI tgui = new SearchEmailGUI(emailFormatado, clicked.getContent(), tokens.get(0),
@@ -253,6 +253,7 @@ public class SearchInformationGUI extends JFrame {
 					tgui.setPost("DATE: " + clicked.getDate() + "\n" + "\n" + "POST: " + clicked.getContent());
 					tgui.constroiJanela();
 
+				}
 				}
 
 			}

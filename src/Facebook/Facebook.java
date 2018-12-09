@@ -31,19 +31,28 @@ import Interface.Info;
 public class Facebook {
 	
 	/** The procura. */
-	String procura;
+	private String procura;
 	
 	/** The posts. */
-	ArrayList<Info> posts = new ArrayList<Info>();
+	private ArrayList<Info> posts = new ArrayList<Info>();
 	
 	/** The tempos. */
-	List<Date> tempos = new ArrayList<Date>();
+	private List<Date> tempos = new ArrayList<Date>();
 	
 	/** The today. */
-	Date today = new Date();
+	private Date today = new Date();
 	
 	/** The today 2. */
-	Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
+	private Date today2 = new Date(today.getYear(), today.getMonth(), today.getDay());
+	
+	
+	/**
+	 * 
+	 */
+	private String combo;
+	
+	
+	private Connection<Post> result;
 
 	/**
 	 * Constructor that establish a conection with the access keys and show a list with the facebook posts
@@ -54,12 +63,19 @@ public class Facebook {
 	 */
 
 	public Facebook(String procura, String combo, String token) {
+		this.combo=combo;
 		this.procura = procura;
 		FacebookClient fbClient5 = new DefaultFacebookClient(token);
-		Connection<Post> result = fbClient5.fetchConnection("me/feed", Post.class);
-
+		result = fbClient5.fetchConnection("me/feed", Post.class);
 		today2.setHours(today.getHours() - 6);
 
+		
+	}
+
+	/**
+	 * Used to unload all facebook post accordingly with the selected filters
+	 */
+	public void unload() {
 		for (List<Post> page : result) {
 			for (Post aPost : page) {
 				if (aPost.getMessage() != null && aPost.getMessage().contains(procura)) {
@@ -103,7 +119,8 @@ public class Facebook {
 		}
 
 	}
-
+	
+	
 	/**
 	 * Função que retorna o access token usado para estabelecer a ligação e desta
 	 * forma permitir cria testes JUnit.
